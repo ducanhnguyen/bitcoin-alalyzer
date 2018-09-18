@@ -12,7 +12,7 @@ import org.eclipse.egit.github.core.service.CommitService;
 /**
  * Page commits in blocks of 25 and print author and date
  */
-public class CommitRetriver {
+public class CommitRetriever {
 
 	/**
 	 * Print commit authors and dates paged in blocks of 25
