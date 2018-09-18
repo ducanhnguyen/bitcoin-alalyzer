@@ -1,4 +1,4 @@
-package samples;
+package com.samples;
 
 import java.io.IOException;
 import java.text.MessageFormat;
