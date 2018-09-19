@@ -70,9 +70,9 @@ public class CommitRetriever {
 
 	public static void main(String[] args) {
 		CommitRetriever bitcoinCommitRetriever = new CommitRetriever();
-		bitcoinCommitRetriever.setNameRepo(IConfiguration.BITCOIN_REPO_NAME);
-		bitcoinCommitRetriever.setNameUser(IConfiguration.BITCOIN_USER_NAME);
-		bitcoinCommitRetriever.setCsvFile(IConfiguration.COMMITS_FILE);
+		bitcoinCommitRetriever.setNameRepo(IConfiguration.Bitcoin.REPO_NAME);
+		bitcoinCommitRetriever.setNameUser(IConfiguration.Bitcoin.USER_NAME);
+		bitcoinCommitRetriever.setCsvFile(IConfiguration.Bitcoin.COMMITS_ON_MASTER_FILE);
 		Commits commits = bitcoinCommitRetriever.crawlCommits();
 		System.out.println(commits.size());
 	}

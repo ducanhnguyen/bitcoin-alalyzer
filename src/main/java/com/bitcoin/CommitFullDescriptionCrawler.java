@@ -21,14 +21,15 @@ public class CommitFullDescriptionCrawler {
 
 	public static void main(String[] args) {
 		CsvManager csvManager = new CsvManager();
-		List<String[]> commits = csvManager.readRecordsFromCsv(IConfiguration.COMMITS_FILE);
+		List<String[]> commits = csvManager.readRecordsFromCsv(IConfiguration.Bitcoin.COMMITS_ON_MASTER_FILE);
 
 		// We ignore the first element because it is the header of the commit file
 		for (int i = 1; i < commits.size(); i++) {
 			String[] commit = commits.get(i);
 
 			String sha = commit[IConfiguration.COMMIT_HEADER_ID];
-			File descriptionFile = new File(IConfiguration.BASE_PATCHES_URL + sha + ".json");
+			File descriptionFile = new File(
+					IConfiguration.Bitcoin.BASE_PATCHES_URL.getAbsolutePath() + File.separator + sha + ".json");
 
 			if (!descriptionFile.exists()) {
 				DescriptionOfACommitRetriever retriever = new DescriptionOfACommitRetriever();
@@ -36,6 +37,7 @@ public class CommitFullDescriptionCrawler {
 				retriever.retrieveDescription();
 				String response = retriever.getResponse();
 				IOUtils.writeToFile(descriptionFile, response);
+				System.out.println("Crawling " + sha);
 			} else {
 				// The description of the current commit is retrieved before
 				System.out.println("Crawled before, ignoring");

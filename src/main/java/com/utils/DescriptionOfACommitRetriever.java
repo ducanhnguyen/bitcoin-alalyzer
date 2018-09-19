@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Base64;
+import java.util.concurrent.TimeUnit;
 
 import com.bitcoin.object.IConfiguration;
 import com.bitcoin.object.IPersonalInformation;
@@ -37,40 +38,57 @@ public class DescriptionOfACommitRetriever {
 	public DescriptionOfACommitRetriever() {
 	}
 
-	public String retrieveDescription() {
-		if (sha != null && sha.length() > 0)
-			try {
-				String usernameColonPassword = IPersonalInformation.USERNAME + ":" + IPersonalInformation.PASSWORD;
-				String basicAuthPayload = "Basic "
-						+ Base64.getEncoder().encodeToString(usernameColonPassword.getBytes());
+	public void retrieveDescription() {
+		if (sha != null && sha.length() > 0) {
+			boolean isReceivedRequest = false;
 
-				URL url = new URL(IConfiguration.BASE_COMMIT_URL + sha);
-				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			String usernameColonPassword = IPersonalInformation.USERNAME + ":" + IPersonalInformation.PASSWORD;
+			String basicAuthPayload = "Basic " + Base64.getEncoder().encodeToString(usernameColonPassword.getBytes());
 
-				conn.setRequestMethod("GET");
-				conn.setRequestProperty("Accept", "application/json");
+			do {
+				HttpURLConnection conn = null;
+				try {
+					URL url = new URL(IConfiguration.Bitcoin.BASE_COMMIT_URL + sha);
+					conn = (HttpURLConnection) url.openConnection();
 
-				// Include the HTTP Basic Authentication payload
-				conn.addRequestProperty("Authorization", basicAuthPayload);
+					conn.setRequestMethod("GET");
+					conn.setRequestProperty("Accept", "application/json");
 
-				if (conn.getResponseCode() != 200) {
-					throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+					// Include the HTTP Basic Authentication payload
+					conn.addRequestProperty("Authorization", basicAuthPayload);
+
+					if (conn.getResponseCode() != 200) {
+						throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+
+					} else {
+						BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+
+						String output = new String();
+						while ((output = br.readLine()) != null)
+							response += output + "\n";
+					}
+				} catch (RuntimeException e) {
+					System.out.println("Server does not response. Pause in 30 minutes before continuing");
+					try {
+						Thread.sleep(10 * 60000);
+						isReceivedRequest = false;
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+
+				} catch (IOException e) {
+					e.printStackTrace();
+
+				} finally {
+					if (conn != null)
+						conn.disconnect();
+
+					isReceivedRequest = true;
 				}
-
-				BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
-				String output;
-				while ((output = br.readLine()) != null) {
-					response += output + "\n";
-				}
-
-				conn.disconnect();
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		return response;
+			} while (!isReceivedRequest);
+		}
 	}
 
 	public void setSha(String sha) {
