@@ -1,22 +1,31 @@
 package com.bitcoin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 
+import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.RepositoryCommit;
-import org.eclipse.egit.github.core.RepositoryId;
+import org.eclipse.egit.github.core.client.GitHubClient;
 import org.eclipse.egit.github.core.service.CommitService;
+import org.eclipse.egit.github.core.service.RepositoryService;
 
 import com.bitcoin.object.Commit;
 import com.bitcoin.object.Commits;
+import com.bitcoin.object.IConfiguration;
+import com.bitcoin.object.IPersonalInformation;
+import com.utils.CsvManager;
 
 /**
  * Crawl commits from bitcoin on Github
  *
  */
 public class CommitRetriever {
-	public String nameUser = new String();
+	public String bitcoinUser = new String();
 
-	public String nameRepo = new String();
+	public String bitcoinRepo = new String();
+
+	public File csvFile = null;
 
 	public CommitRetriever() {
 	}
@@ -24,45 +33,71 @@ public class CommitRetriever {
 	public Commits crawlCommits() {
 		Commits commits = new Commits();
 
-		if (nameUser.length() > 0 && nameRepo.length() > 0) {
+		if (bitcoinUser.length() > 0 && bitcoinRepo.length() > 0) {
 			final int size = 25;
-			final RepositoryId repo = new RepositoryId(nameUser, nameRepo);
 
-			final CommitService service = new CommitService();
-			for (Collection<RepositoryCommit> githubCommits : service.pageCommits(repo, size))
-				for (RepositoryCommit commit : githubCommits) {
-					Commit newCommit = new Commit();
-					newCommit.setGithubCommit(commit);
-					commits.add(newCommit);
+			// Basic authentication
+			GitHubClient client = new GitHubClient();
+			client.setCredentials(IPersonalInformation.USERNAME, IPersonalInformation.PASSWORD);
+			RepositoryService repoService = new RepositoryService(client);
 
-					// Write to file
+			// Crawl
+			try {
+				final Repository repo = repoService.getRepository(bitcoinUser, bitcoinRepo);
+				final CommitService service = new CommitService(client);
+				final CsvManager csvManager = new CsvManager();
 
-				}
+				for (Collection<RepositoryCommit> githubCommits : service.pageCommits(repo, size))
+					for (RepositoryCommit commit : githubCommits) {
+						Commit newCommit = new Commit();
+						newCommit.setGithubCommit(commit);
+						commits.add(newCommit);
+
+						// Write to file during crawling
+						csvManager.appendARecordToCsv(csvFile, IConfiguration.COMMIT_FILE_HEADER,
+								new String[] { newCommit.getSha(), newCommit.getAuthor(),
+										newCommit.getDate().toString(), newCommit.getURL() });
+						System.out.println(commits.size());
+						csvManager.closeCSVWriter();
+					}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
 		return commits;
 	}
 
 	public static void main(String[] args) {
 		CommitRetriever bitcoinCommitRetriever = new CommitRetriever();
-		bitcoinCommitRetriever.setNameRepo("bitcoin");
-		bitcoinCommitRetriever.setNameUser("bitcoin");
+		bitcoinCommitRetriever.setNameRepo(IConfiguration.BITCOIN_REPO_NAME);
+		bitcoinCommitRetriever.setNameUser(IConfiguration.BITCOIN_USER_NAME);
+		bitcoinCommitRetriever.setCsvFile(IConfiguration.COMMITS_FILE);
 		Commits commits = bitcoinCommitRetriever.crawlCommits();
 		System.out.println(commits.size());
 	}
 
 	public String getNameRepo() {
-		return nameRepo;
+		return bitcoinRepo;
 	}
 
 	public void setNameRepo(String nameRepo) {
-		this.nameRepo = nameRepo;
+		this.bitcoinRepo = nameRepo;
 	}
 
 	public String getNameUser() {
-		return nameUser;
+		return bitcoinUser;
 	}
 
 	public void setNameUser(String nameUser) {
-		this.nameUser = nameUser;
+		this.bitcoinUser = nameUser;
+	}
+
+	public void setCsvFile(File csvFile) {
+		this.csvFile = csvFile;
+	}
+
+	public File getCsvFile() {
+		return csvFile;
 	}
 }

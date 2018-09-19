@@ -1,0 +1,45 @@
+package com.bitcoin;
+
+import java.io.File;
+import java.util.List;
+
+import com.bitcoin.object.IConfiguration;
+import com.utils.CsvManager;
+import com.utils.DescriptionOfACommitRetriever;
+import com.utils.IOUtils;
+
+/**
+ * Read the commit file to get the full description of each commit
+ * 
+ * @author Duc-Anh Nguyen
+ *
+ */
+public class CommitFullDescriptionCrawler {
+
+	public CommitFullDescriptionCrawler() {
+	}
+
+	public static void main(String[] args) {
+		CsvManager csvManager = new CsvManager();
+		List<String[]> commits = csvManager.readRecordsFromCsv(IConfiguration.COMMITS_FILE);
+
+		// We ignore the first element because it is the header of the commit file
+		for (int i = 1; i < commits.size(); i++) {
+			String[] commit = commits.get(i);
+
+			String sha = commit[IConfiguration.COMMIT_HEADER_ID];
+			File descriptionFile = new File(IConfiguration.BASE_PATCHES_URL + sha + ".json");
+
+			if (!descriptionFile.exists()) {
+				DescriptionOfACommitRetriever retriever = new DescriptionOfACommitRetriever();
+				retriever.setSha(sha);
+				retriever.retrieveDescription();
+				String response = retriever.getResponse();
+				IOUtils.writeToFile(descriptionFile, response);
+			} else {
+				// The description of the current commit is retrieved before
+				System.out.println("Crawled before, ignoring");
+			}
+		}
+	}
+}
