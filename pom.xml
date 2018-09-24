@@ -48,12 +48,13 @@
 			<version>1.7.24</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.jcraft/jsch
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
-			<groupId>com.jcraft</groupId>
-			<artifactId>jsch</artifactId>
-			<version>0.1.54</version>
-		</dependency> -->
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
 
 	</dependencies>
 </project>

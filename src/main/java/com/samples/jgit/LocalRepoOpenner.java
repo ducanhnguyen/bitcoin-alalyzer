@@ -35,6 +35,7 @@ public class LocalRepoOpenner {
 		TreeWalk treeWalk = new TreeWalk(repository);
 		treeWalk.addTree(tree);
 		treeWalk.setRecursive(true);
+
 		treeWalk.setFilter(PathFilter.create("README.md"));
 		if (!treeWalk.next()) {
 			throw new IllegalStateException("Did not find expected file 'README.md'");

@@ -1,4 +1,4 @@
-package com.bitcoin.object;
+package com.bitcoin.egit.object;
 
 import java.util.HashSet;
 

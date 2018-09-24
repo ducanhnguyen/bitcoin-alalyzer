@@ -1,4 +1,4 @@
-package com.bitcoin.object;
+package com.utils;
 
 public interface IPersonalInformation extends IConfiguration {
 	String USERNAME = "ducanhnguyen";

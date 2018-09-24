@@ -7,7 +7,7 @@ import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.client.GitHubClient;
 import org.eclipse.egit.github.core.service.RepositoryService;
 
-import com.bitcoin.object.IPersonalInformation;
+import com.utils.IPersonalInformation;
 
 /**
  * Print a user's repositories

@@ -1,11 +1,11 @@
-package com.bitcoin;
+package com.bitcoin.egit;
 
 import java.io.File;
 import java.util.List;
 
-import com.bitcoin.object.IConfiguration;
 import com.utils.CsvManager;
 import com.utils.DescriptionOfACommitRetriever;
+import com.utils.IConfiguration;
 import com.utils.IOUtils;
 
 /**
@@ -21,7 +21,7 @@ public class CommitFullDescriptionCrawler {
 
 	public static void main(String[] args) {
 		CsvManager csvManager = new CsvManager();
-		List<String[]> commits = csvManager.readRecordsFromCsv(IConfiguration.Bitcoin.COMMITS_ON_MASTER_FILE);
+		List<String[]> commits = csvManager.readRecordsFromCsv(IConfiguration.Egit_Bitcoin.COMMITS_ON_MASTER_FILE);
 
 		// We ignore the first element because it is the header of the commit file
 		for (int i = 1; i < commits.size(); i++) {
@@ -29,7 +29,7 @@ public class CommitFullDescriptionCrawler {
 
 			String sha = commit[IConfiguration.COMMIT_HEADER_ID];
 			File descriptionFile = new File(
-					IConfiguration.Bitcoin.BASE_PATCHES_URL.getAbsolutePath() + File.separator + sha + ".json");
+					IConfiguration.Egit_Bitcoin.BASE_PATCHES_URL.getAbsolutePath() + File.separator + sha + ".json");
 
 			if (!descriptionFile.exists()) {
 				DescriptionOfACommitRetriever retriever = new DescriptionOfACommitRetriever();

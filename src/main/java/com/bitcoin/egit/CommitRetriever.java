@@ -1,4 +1,4 @@
-package com.bitcoin;
+package com.bitcoin.egit;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,11 +10,11 @@ import org.eclipse.egit.github.core.client.GitHubClient;
 import org.eclipse.egit.github.core.service.CommitService;
 import org.eclipse.egit.github.core.service.RepositoryService;
 
-import com.bitcoin.object.Commit;
-import com.bitcoin.object.Commits;
-import com.bitcoin.object.IConfiguration;
-import com.bitcoin.object.IPersonalInformation;
+import com.bitcoin.egit.object.Commit;
+import com.bitcoin.egit.object.Commits;
 import com.utils.CsvManager;
+import com.utils.IConfiguration;
+import com.utils.IPersonalInformation;
 
 /**
  * Crawl commits from bitcoin on Github
@@ -70,9 +70,9 @@ public class CommitRetriever {
 
 	public static void main(String[] args) {
 		CommitRetriever bitcoinCommitRetriever = new CommitRetriever();
-		bitcoinCommitRetriever.setNameRepo(IConfiguration.Bitcoin.REPO_NAME);
-		bitcoinCommitRetriever.setNameUser(IConfiguration.Bitcoin.USER_NAME);
-		bitcoinCommitRetriever.setCsvFile(IConfiguration.Bitcoin.COMMITS_ON_MASTER_FILE);
+		bitcoinCommitRetriever.setNameRepo(IConfiguration.Egit_Bitcoin.REPO_NAME);
+		bitcoinCommitRetriever.setNameUser(IConfiguration.Egit_Bitcoin.USER_NAME);
+		bitcoinCommitRetriever.setCsvFile(IConfiguration.Egit_Bitcoin.COMMITS_ON_MASTER_FILE);
 		Commits commits = bitcoinCommitRetriever.crawlCommits();
 		System.out.println(commits.size());
 	}

@@ -9,9 +9,6 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
-import com.bitcoin.object.IConfiguration;
-import com.bitcoin.object.IPersonalInformation;
-
 /**
  * Create a simple Java client to send “GET” request
  * 
@@ -48,7 +45,7 @@ public class DescriptionOfACommitRetriever {
 			do {
 				HttpURLConnection conn = null;
 				try {
-					URL url = new URL(IConfiguration.Bitcoin.BASE_COMMIT_URL + sha);
+					URL url = new URL(IConfiguration.Egit_Bitcoin.BASE_COMMIT_URL + sha);
 					conn = (HttpURLConnection) url.openConnection();
 
 					conn.setRequestMethod("GET");
