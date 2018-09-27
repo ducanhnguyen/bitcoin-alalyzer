@@ -24,7 +24,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/org.eclipse.jgit-5.1.1.201809181055-r.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.jgit-5.1.1.201809181055-r.jar" sourcepath="lib/jgit-5.1.1.201809181055-r.zip"/>
 	<classpathentry kind="lib" path="lib/jsch-0.1.54.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
