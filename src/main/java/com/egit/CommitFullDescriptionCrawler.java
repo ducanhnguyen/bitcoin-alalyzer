@@ -6,7 +6,7 @@ import java.util.List;
 import com.utils.CsvManager;
 import com.utils.DescriptionOfACommitRetriever;
 import com.utils.IConfiguration;
-import com.utils.IOUtils;
+import com.utils.Utils;
 
 /**
  * Read the commit file to get the full description of each commit
@@ -36,7 +36,7 @@ public class CommitFullDescriptionCrawler {
 				retriever.setSha(sha);
 				retriever.retrieveDescription();
 				String response = retriever.getResponse();
-				IOUtils.writeToFile(descriptionFile, response);
+				Utils.writeToFile(descriptionFile, response);
 				System.out.println("Crawling " + sha);
 			} else {
 				// The description of the current commit is retrieved before
