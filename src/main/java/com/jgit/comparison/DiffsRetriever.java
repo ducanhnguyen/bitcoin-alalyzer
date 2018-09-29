@@ -28,7 +28,7 @@ public class DiffsRetriever {
 
 		List<MyDiff> diffs = retriever.retrieveAllDiffs();
 
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 100; i++) {
 			MyDiff diff = diffs.get(i);
 			System.out.println("File: " + diff.getNameChangeFile());
 			System.out.println("Commit A: " + diff.getCommitA().getCommit().getName());
@@ -54,8 +54,8 @@ public class DiffsRetriever {
 			 * Get all diff
 			 */
 
-			for (int i = 0; i < commits.size() - 1; i++) {
-				System.out.println("Parse " + i + "/" + commits.size());
+			for (int i = 0; i < commits.size(); i++) {
+				System.out.println("Parse commit " + i + "/" + commits.size());
 				CommitJgit currentCommit = commits.get(i);
 				CommitJgit previousCommit = commits.get(i + 1);
 
@@ -67,10 +67,10 @@ public class DiffsRetriever {
 					if (isCOrCppLanguage(changedFile.getNameFile())) {
 
 						MyDiff diff = new MyDiff();
-						diff.setSourcecodeBeforeBeingChanged(changedFile.getCurrentCommit()
-								.getSourcecodeFileBeforeBeingChanged(changedFile.getNameFile()));
-						diff.setSourcecodeAfterBeingChanged(changedFile.getCurrentCommit()
-								.getSourcecodeFileAfterBeingChanged(changedFile.getNameFile()));
+//						diff.setSourcecodeBeforeBeingChanged(changedFile.getCurrentCommit()
+//								.getSourcecodeFileBeforeBeingChanged(changedFile.getNameFile()));
+//						diff.setSourcecodeAfterBeingChanged(changedFile.getCurrentCommit()
+//								.getSourcecodeFileAfterBeingChanged(changedFile.getNameFile()));
 						diff.setChangedCodeSnippet(changedFile.getLinesBeforeBeingChanged());
 						diff.setDiff(changedFile.getDifferences());
 						diff.setCommitA(currentCommit);

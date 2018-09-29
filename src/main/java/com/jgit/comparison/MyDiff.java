@@ -6,7 +6,7 @@ import java.util.List;
 import com.jgit.object.CommitJgit;
 
 /**
- * Represent a diff when comparing two commits
+ * Represent differences in a file
  * 
  * @author Duc-Anh Nguyen
  *
@@ -16,8 +16,8 @@ public class MyDiff {
 	private CommitJgit commitA;
 	private CommitJgit commitB;
 
-	private List<String> sourcecodeBeforeBeingChanged = new ArrayList<String>();
-	private List<String> sourcecodeAfterBeingChanged = new ArrayList<String>();
+//	private List<String> sourcecodeBeforeBeingChanged = new ArrayList<String>();
+//	private List<String> sourcecodeAfterBeingChanged = new ArrayList<String>();
 
 	// The code snippet are changed in two commits. These code snippet are before
 	// being changed.
@@ -47,21 +47,21 @@ public class MyDiff {
 
 	}
 
-	public List<String> getSourcecodeAfterBeingChanged() {
-		return sourcecodeAfterBeingChanged;
-	}
-
-	public void setSourcecodeAfterBeingChanged(List<String> sourcecodeAfterBeingChanged) {
-		this.sourcecodeAfterBeingChanged = sourcecodeAfterBeingChanged;
-	}
-
-	public List<String> getSourcecodeBeforeBeingChanged() {
-		return sourcecodeBeforeBeingChanged;
-	}
-
-	public void setSourcecodeBeforeBeingChanged(List<String> sourcecodeBeforeBeingChanged) {
-		this.sourcecodeBeforeBeingChanged = sourcecodeBeforeBeingChanged;
-	}
+//	public List<String> getSourcecodeAfterBeingChanged() {
+//		return sourcecodeAfterBeingChanged;
+//	}
+//
+//	public void setSourcecodeAfterBeingChanged(List<String> sourcecodeAfterBeingChanged) {
+//		this.sourcecodeAfterBeingChanged = sourcecodeAfterBeingChanged;
+//	}
+//
+//	public List<String> getSourcecodeBeforeBeingChanged() {
+//		return sourcecodeBeforeBeingChanged;
+//	}
+//
+//	public void setSourcecodeBeforeBeingChanged(List<String> sourcecodeBeforeBeingChanged) {
+//		this.sourcecodeBeforeBeingChanged = sourcecodeBeforeBeingChanged;
+//	}
 
 	public List<String> getDiff() {
 		return diff;

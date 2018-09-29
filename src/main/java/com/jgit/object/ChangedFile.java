@@ -140,7 +140,7 @@ public class ChangedFile {
 			if (difference.startsWith("@@"))
 				sourcecodeFlag = true;
 			if (sourcecodeFlag) {
-				if (difference.startsWith("-")) {
+				if (difference.startsWith("-") && !difference.startsWith("-//") && !difference.startsWith("- //")) {
 					src.add(difference.substring(1));
 				}
 			}
