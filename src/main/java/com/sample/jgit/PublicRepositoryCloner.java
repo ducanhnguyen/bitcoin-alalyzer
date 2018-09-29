@@ -1,4 +1,4 @@
-package com.samples.jgit;
+package com.sample.jgit;
 
 import java.io.File;
 

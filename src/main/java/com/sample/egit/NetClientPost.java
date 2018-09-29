@@ -1,4 +1,4 @@
-package com.samples.egit;
+package com.sample.egit;
 
 import java.io.BufferedReader;
 import java.io.IOException;
