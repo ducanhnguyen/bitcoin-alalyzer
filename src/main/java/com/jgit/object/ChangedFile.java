@@ -130,7 +130,7 @@ public class ChangedFile {
 	 * 
 	 * @return
 	 */
-	public List<String> getLinesBeforeBeingChanged() {
+	public List<String> getChangedCodeSnippetBeforeBeingChanged() {
 		List<String> src = new ArrayList<String>();
 
 		List<String> differences = getDifferences();

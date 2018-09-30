@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 	public static String convertToString(List<String> lines) {
@@ -54,4 +56,10 @@ public class Utils {
 		return content;
 	}
 
+	public static List<String> convertToList(String[] texts) {
+		List<String> output = new ArrayList<String>();
+		for (String text : texts)
+			output.add(text);
+		return output;
+	}
 }

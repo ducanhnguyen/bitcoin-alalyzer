@@ -32,7 +32,7 @@ import com.utils.IConfiguration;
  * @author Duc-Anh Nguyen
  *
  */
-public class CommitJgit {
+public final class CommitJgit {
 	private CommitsJgit parent = null;
 	private RevCommit commit = null;
 
@@ -102,7 +102,7 @@ public class CommitJgit {
 		 */
 		System.out.println("------------------\n");
 		System.out.println("Here are code snippets changed in the current commit");
-		List<String> content3 = aChangedFile.getLinesBeforeBeingChanged();
+		List<String> content3 = aChangedFile.getChangedCodeSnippetBeforeBeingChanged();
 		for (String s : content3)
 			System.out.println(s);
 
@@ -169,6 +169,7 @@ public class CommitJgit {
 	 * @return
 	 * @throws IOException
 	 */
+	@Deprecated
 	public List<String> getSourcecodeFileAfterBeingChanged(String changedFile) {
 		List<String> sourcecodeFile = new ArrayList<String>();
 
@@ -217,6 +218,7 @@ public class CommitJgit {
 	 * @return
 	 * @throws IOException
 	 */
+	@Deprecated
 	public List<String> getSourcecodeFileBeforeBeingChanged(String changedFile) {
 		List<String> sourcecodeFile = new ArrayList<String>();
 
