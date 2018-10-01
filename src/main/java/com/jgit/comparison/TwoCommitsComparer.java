@@ -42,15 +42,23 @@ public class TwoCommitsComparer {
 				System.out.println("1. " + A.toString());
 				System.out.println("2. " + B.toString());
 
+				// Calculate similarity between two commits
 				comparer.setDiffEntriesOfCommitA(A);
 				comparer.setDiffEntriesOfCommitB(B);
-				double similarity = comparer.compareTwoCommitsByDiffEntries();
+				List<SimilarityPair> pairs = comparer.compareTwoCommitsByDiffEntries();
 
-				if (similarity > THRESHOLD_SIMILARITY) {
+				double sumSim = 0.0f;
+				for (SimilarityPair p : pairs) {
+					sumSim += p.sim;
+				}
+				double commitSimilarity = sumSim * 1.0f / pairs.size();
+
+				if (commitSimilarity >= COMMIT_THRESHOLD_SIMILARITY) {
 					String output = new String();
-					output += "Commit A: " + A.getCommitA().getCommit().getName() + "\n";
+					output += "--------------------\nCommit A: " + A.getCommitA().getCommit().getName() + "\n";
 					output += "Commit B: " + B.getCommitA().getCommit().getName() + "\n";
-					output += "The similarity of two commits (or two Diff Entries)  = " + similarity + "\n\n";
+					output += "Commit similarity  = " + commitSimilarity + "\n";
+					output += pairs.toString() + "\n\n";
 
 					File outputFile = new File("./similarity.txt");
 					String oldContent = Utils.convertToString(Utils.readFileContent(outputFile));
@@ -62,9 +70,7 @@ public class TwoCommitsComparer {
 			}
 	}
 
-	public double compareTwoCommitsByDiffEntries() {
-		double commitSimilarity = 0.0f;
-
+	public List<SimilarityPair> compareTwoCommitsByDiffEntries() {
 		List<SimilarityPair> pairs = new ArrayList<TwoCommitsComparer.SimilarityPair>();
 
 		if (diffEntriesOfCommitA != null && diffEntriesOfCommitB != null) {
@@ -96,18 +102,12 @@ public class TwoCommitsComparer {
 						}
 					}
 
-				if (pair != null)
+				if (pair != null && pair.sim >= DIFF_ENTRY_THRESHOLD_SIMILARITY)
 					pairs.add(pair);
 			}
 		}
-		// Calculate similarity between two commits
-		double sumSim = 0.0f;
-		for (SimilarityPair p : pairs) {
-			sumSim += p.sim;
-		}
-		commitSimilarity = sumSim * 1.0f / pairs.size();
 
-		return commitSimilarity;
+		return pairs;
 	}
 
 	/**
@@ -147,7 +147,8 @@ public class TwoCommitsComparer {
 		this.diffEntriesOfCommitB = diffB;
 	}
 
-	public static final float THRESHOLD_SIMILARITY = 0.6f;
+	public static final float COMMIT_THRESHOLD_SIMILARITY = 0.4f;
+	public static final float DIFF_ENTRY_THRESHOLD_SIMILARITY = 0.4f;
 
 	class SimilarityPair {
 		MyDiffEntry entryA;
@@ -158,6 +159,14 @@ public class TwoCommitsComparer {
 			this.entryA = entryA;
 			this.entryB = entryB;
 			this.sim = sim;
+		}
+
+		@Override
+		public String toString() {
+			String output = "[Pair] sim = " + sim + "\n";
+			output += "+ Entry A:\n" + entryA.toString() + "\n";
+			output += "+ Entry B:\n" + entryB.toString() + "\n\n";
+			return output;
 		}
 	}
 }
