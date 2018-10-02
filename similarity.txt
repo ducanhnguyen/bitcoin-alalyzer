@@ -1,0 +1,320 @@
+Commit A: a6aca8dc2fc4f140605851a8cb3f36f8d5bb19da
+Commit B: 7b2d96b634f9fd283480caf3bece56138d0587e3
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: a6aca8dc2fc4f140605851a8cb3f36f8d5bb19da
+Commit B: ac719c936dee55f386a8be88fe298d1b44b467dc
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: cae686d31e18a68826ef61931ae8379fe9461d7b
+The similarity of two commits (or two Diff Entries)  = 0.716600541563821
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 4291e8feab308cb9c7840d74fc7aacf137a7c21f
+The similarity of two commits (or two Diff Entries)  = 0.7650708675459945
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: a3fad2119bcf4638ed137fc5cddc2f34a3bd1dc2
+The similarity of two commits (or two Diff Entries)  = 0.70224548694952
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 64753f0438f66c51ba7ae2173120ae97f22d186e
+The similarity of two commits (or two Diff Entries)  = 0.9314247570117983
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: adae78ea9940f4d44382967d1296e7db0b54a4de
+The similarity of two commits (or two Diff Entries)  = 0.6056101766388967
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 84d6d69fc69662b2709fffbeaf3c3b4f53c535b1
+The similarity of two commits (or two Diff Entries)  = 0.6044652470630315
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 1bb86d6f154da45464eb8b009c298dccd1cb3dab
+The similarity of two commits (or two Diff Entries)  = 0.6025576789812871
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: eed29f0f50806b9cfe9653509e7ed7f7eebdd3e3
+The similarity of two commits (or two Diff Entries)  = 0.6029889483514734
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 55c68902946c8c9bacea748c159be456a7c9c180
+The similarity of two commits (or two Diff Entries)  = 0.607631802812011
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 060fdb41fc58e962a694021f2883f765e3246748
+The similarity of two commits (or two Diff Entries)  = 0.618145651753164
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 938b68984668445035b2505e1b7ec07649dd2bbc
+The similarity of two commits (or two Diff Entries)  = 0.6272194762259521
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 4b0e2d75d78036e7e76fd9584e17b0379ba08d24
+The similarity of two commits (or two Diff Entries)  = 0.6184128301481937
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: d48555b36ac512161b81f9b6bca7bea16a0cd806
+The similarity of two commits (or two Diff Entries)  = 0.6134233387402404
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 87bddb7a3a83aaad96b5b54b4bac34d8a71b3810
+The similarity of two commits (or two Diff Entries)  = 0.6179682895739633
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 68705996a9e486824e08d1ca4f906be35592f5fd
+The similarity of two commits (or two Diff Entries)  = 0.6322872340679169
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: ecae2acb06d44509425a9cdad38ed9a5bce15cbe
+The similarity of two commits (or two Diff Entries)  = 0.623476128824216
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 7873633b5752621548b8d38fc175f5a5f2f1e5d6
+The similarity of two commits (or two Diff Entries)  = 0.6331318168368723
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 9d09322b41776a0d6ecde182f731eff77d0f052b
+The similarity of two commits (or two Diff Entries)  = 0.6370234733150912
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: a591d98c322093040d59e152591f0978962f9da7
+The similarity of two commits (or two Diff Entries)  = 0.6391447251954301
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 2f9f082b5ef3c495c70598ef23383effef675f9a
+The similarity of two commits (or two Diff Entries)  = 0.6561825251955654
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 313e7f5c89d6e72e06efe9255089765b4c5815fe
+The similarity of two commits (or two Diff Entries)  = 0.6509217664333327
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: fb9857bfd68c13b52e14bc28dd981bc12501806a
+The similarity of two commits (or two Diff Entries)  = 0.6514459502359977
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 1d84107924ab36e38092cae43f6ad50dd5ead9ed
+The similarity of two commits (or two Diff Entries)  = 0.6835805232947071
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 2aa49ce9fe618bda9bf70fd57b23fe4802f0aeff
+The similarity of two commits (or two Diff Entries)  = 0.6409750979093057
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 5ad54630935d1f340666de7bc9ffef9b8a1df296
+The similarity of two commits (or two Diff Entries)  = 0.6857184448042044
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 982709199f1b4e9e35211c419a81938f9f1dd4ed
+The similarity of two commits (or two Diff Entries)  = 0.6866247344206181
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: a545127fbccef4ee674d18d43732ce00ba97f782
+The similarity of two commits (or two Diff Entries)  = 0.6878532131965136
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 32114dd63493fd169bf666fc3a5b4a912c083766
+The similarity of two commits (or two Diff Entries)  = 0.9903657585382462
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: fac93497986b5f74716383bf26c78406253c625a
+The similarity of two commits (or two Diff Entries)  = 0.6869825373093287
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 60ab9b200654ef0914459711cf2b22be16be3dc2
+The similarity of two commits (or two Diff Entries)  = 0.695988851521785
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: b2135359b3ad37cf2ac09b008079ddb237eff2c9
+The similarity of two commits (or two Diff Entries)  = 0.7073514861701795
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 3650668cdbbf369dd8f30c8e8eb5bb883325942d
+The similarity of two commits (or two Diff Entries)  = 0.7213587518158355
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 2ca7faab4205822b06dc2ab2bbda0a9a70fce7e0
+The similarity of two commits (or two Diff Entries)  = 0.7226273518114705
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 634ad517037b319147816f1d112b066528e1724a
+The similarity of two commits (or two Diff Entries)  = 0.7341246828726883
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 8501bedd7508ac514385806e191aec21ee978891
+The similarity of two commits (or two Diff Entries)  = 0.7381123405013583
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 7b49f22bdbdecca600c4744d020b3553fe427e61
+The similarity of two commits (or two Diff Entries)  = 0.738505589022723
+
+Commit A: dc287c98f8b33576f3c71db02a232106ef0e57d9
+Commit B: 84e33cfc841f7f97f49fb1485cb64a6d8dd0a133
+The similarity of two commits (or two Diff Entries)  = 0.6528925895690918
+
+Commit A: faad55a9a24601aac47b5e3bc44827ddb41d8f93
+Commit B: fad4ea836dc7cd1bb13c7394a6fadff419e4b026
+The similarity of two commits (or two Diff Entries)  = 0.7199942427022117
+
+Commit A: faad55a9a24601aac47b5e3bc44827ddb41d8f93
+Commit B: a406fcb6cacdc49ce11fc6147df58c0c827a7a06
+The similarity of two commits (or two Diff Entries)  = 0.7509748749434948
+
+Commit A: faad55a9a24601aac47b5e3bc44827ddb41d8f93
+Commit B: 37871f216e0d9463f456b8b014b80cc064011351
+The similarity of two commits (or two Diff Entries)  = 0.7701567262411118
+
+Commit A: faad55a9a24601aac47b5e3bc44827ddb41d8f93
+Commit B: e757115164c6f73c93a2d65a289b8a54e46c669d
+The similarity of two commits (or two Diff Entries)  = 0.7737207338213921
+
+Commit A: 7177e093f9e4ae0dcf1bb46e93cb15d367d3dad5
+Commit B: 7b2d96b634f9fd283480caf3bece56138d0587e3
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 7177e093f9e4ae0dcf1bb46e93cb15d367d3dad5
+Commit B: ac719c936dee55f386a8be88fe298d1b44b467dc
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 793d2b74306d6628ef5b92dce9a081f8951efc2d
+Commit B: 41abbec5fd78a59b020a5130a6e0833ff024ba25
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 793d2b74306d6628ef5b92dce9a081f8951efc2d
+Commit B: e2c428c5b1fb90b4567b2b8201d0fcac19e1e14f
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 7c7bb6e7726a13443a9ad0231808f2858636b39f
+Commit B: af9305a7e8a40014508fb66a22ae95e8afe142c6
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: e2213689328f8ba42af1d32d12c7b78a71f1ddc7
+Commit B: 41abbec5fd78a59b020a5130a6e0833ff024ba25
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: e2213689328f8ba42af1d32d12c7b78a71f1ddc7
+Commit B: e2c428c5b1fb90b4567b2b8201d0fcac19e1e14f
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 7ab2837b65217e6bf010512c4ea44b09cad69bad
+Commit B: 7b2d96b634f9fd283480caf3bece56138d0587e3
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 7ab2837b65217e6bf010512c4ea44b09cad69bad
+Commit B: ac719c936dee55f386a8be88fe298d1b44b467dc
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 7ab2837b65217e6bf010512c4ea44b09cad69bad
+Commit B: 41abbec5fd78a59b020a5130a6e0833ff024ba25
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 7ab2837b65217e6bf010512c4ea44b09cad69bad
+Commit B: e2c428c5b1fb90b4567b2b8201d0fcac19e1e14f
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: f1bd03eb013b96ff040a8f835e4137fbd2a38cda
+Commit B: 7b2d96b634f9fd283480caf3bece56138d0587e3
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: f1bd03eb013b96ff040a8f835e4137fbd2a38cda
+Commit B: ac719c936dee55f386a8be88fe298d1b44b467dc
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: f1bd03eb013b96ff040a8f835e4137fbd2a38cda
+Commit B: 41abbec5fd78a59b020a5130a6e0833ff024ba25
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: f1bd03eb013b96ff040a8f835e4137fbd2a38cda
+Commit B: e2c428c5b1fb90b4567b2b8201d0fcac19e1e14f
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 962c302710cd6556a85ba953bac236f33b8e1a09
+Commit B: af9305a7e8a40014508fb66a22ae95e8afe142c6
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 962c302710cd6556a85ba953bac236f33b8e1a09
+Commit B: 41abbec5fd78a59b020a5130a6e0833ff024ba25
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 962c302710cd6556a85ba953bac236f33b8e1a09
+Commit B: e2c428c5b1fb90b4567b2b8201d0fcac19e1e14f
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: be54f42e5f309ff332d74828ae294636d77fb8ea
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 72e358dca7d9f470e9e42e4b715a8edfc7b53bdb
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 4901c00792c1dabae4bb01e6373c9b1ed9ef3008
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: fa84723e73d3d7766e7821881ac96ec203e50efc
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 0.6666666716337204
+
+Commit A: 2796c6e5ec9055545e987023b04eb5ebe64d5320
+Commit B: 7b2d96b634f9fd283480caf3bece56138d0587e3
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 2796c6e5ec9055545e987023b04eb5ebe64d5320
+Commit B: ac719c936dee55f386a8be88fe298d1b44b467dc
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 2796c6e5ec9055545e987023b04eb5ebe64d5320
+Commit B: 41abbec5fd78a59b020a5130a6e0833ff024ba25
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: 2796c6e5ec9055545e987023b04eb5ebe64d5320
+Commit B: e2c428c5b1fb90b4567b2b8201d0fcac19e1e14f
+The similarity of two commits (or two Diff Entries)  = 0.6322440043091774
+
+Commit A: b6718e373ed425fa2440ddd8f1b05c76b782dc2b
+Commit B: faddd62518c7b81c56ea2c9936cf850878c03e0b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 920c090f63f4990bf0f3b3d1a6d3d8a8bcd14ba0
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 2c3eade704f63b360926de9e975ce80143781679
+Commit B: faddd62518c7b81c56ea2c9936cf850878c03e0b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 2c3eade704f63b360926de9e975ce80143781679
+Commit B: 6f933c6bb606d35a9f4fb87a75f7cf66afd4b695
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 2c3eade704f63b360926de9e975ce80143781679
+Commit B: b1948723c9bc045aa43a7a2771c62d413bfd0e20
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 2c3eade704f63b360926de9e975ce80143781679
+Commit B: c14ffd524b3477d6fdf142e9dc8281b780b45923
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 30973e9844d9ed8f2932ad7088cae39c49f3ebb5
+Commit B: faddd62518c7b81c56ea2c9936cf850878c03e0b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 30973e9844d9ed8f2932ad7088cae39c49f3ebb5
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 1.0
+
+Commit A: 980b38f8a12130d2761d0f748db750165cfed025
+Commit B: 3897668f5eea679383881af48c3f3ed63bd15a74
+The similarity of two commits (or two Diff Entries)  = 0.6076923310756683
+
+Commit A: 134b42a409eca0171adbb1e5b49b32f1c13c3733
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 0.6666666716337204
+
+Commit A: 0809e68a9084630ff4d11ec0503a3d0ab52bc6d7
+Commit B: fdd499448849ef94ba2343168dd8f099cd51dd7b
+The similarity of two commits (or two Diff Entries)  = 0.6666666716337204
+

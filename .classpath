@@ -56,5 +56,6 @@
 	<classpathentry kind="lib" path="lib/cdt/org.eclipse.core.resources.win32.x86_64_3.5.0.v20121203-0906.jar"/>
 	<classpathentry kind="lib" path="lib/cdt/org.eclipse.equinox.common_3.7.0.v20150402-1709.jar"/>
 	<classpathentry kind="lib" path="lib/cdt/org.eclipse.osgi_3.9.1.v20130814-1242.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

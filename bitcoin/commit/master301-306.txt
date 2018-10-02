@@ -1,0 +1,148 @@
+repository:C:\Users\adn0019\WORK\bitcoin\bitcoin\.git
+branch:refs/heads/master
+commit A:c05712cb590c8c76729a71d75a290c67ae9e3c06
+commit B:f87d0a9d75b366445f880041c56c725f8196364e
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/wallet/rpcwallet.cpp
+changed code snippet:
+        const auto& it = pwallet->mapWallet.find(txhash);
+        // Drop the unnecessary UTXO
+        if (sigdata.witness) {
+            input.non_witness_utxo = nullptr;
+        } else {
+            input.witness_utxo.SetNull();
+
+identifier:it,pwallet,mapWallet,find,txhash,sigdata,witness,input,non_witness_utxo,nullptr,input,witness_utxo,SetNull,
+--@COMMIT SEPERATOR@--
+repository:C:\Users\adn0019\WORK\bitcoin\bitcoin\.git
+branch:refs/heads/master
+commit A:f87d0a9d75b366445f880041c56c725f8196364e
+commit B:afa960002086419feeaf3e50a7003855d39c8111
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/bench/block_assemble.cpp
+changed code snippet:
+        assert(++block->nNonce);
+
+identifier:assert,block,nNonce,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/bench/checkblock.cpp
+changed code snippet:
+        assert(stream.Rewind(sizeof(block_bench::block413567)));
+        assert(stream.Rewind(sizeof(block_bench::block413567)));
+        assert(CheckBlock(block, validationState, chainParams->GetConsensus()));
+
+identifier:assert,stream,Rewind,block_bench::block413567,assert,stream,Rewind,block_bench::block413567,assert,CheckBlock,block,validationState,chainParams,GetConsensus,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/httprpc.cpp
+changed code snippet:
+    assert(EventBase());
+    httpRPCTimerInterface = MakeUnique<HTTPRPCTimerInterface>(EventBase());
+
+identifier:assert,EventBase,httpRPCTimerInterface,MakeUnique,HTTPRPCTimerInterface,EventBase,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/script/sign.cpp
+changed code snippet:
+        assert(VerifyScript(sigs.scriptSig, script, &sigs.scriptWitness, STANDARD_SCRIPT_VERIFY_FLAGS, DUMMY_CHECKER));
+
+identifier:assert,VerifyScript,sigs,scriptSig,script,sigs,scriptWitness,STANDARD_SCRIPT_VERIFY_FLAGS,DUMMY_CHECKER,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/test/txvalidation_tests.cpp
+changed code snippet:
+    assert(CTransaction(coinbaseTx).IsCoinBase());
+
+identifier:assert,CTransaction,coinbaseTx,IsCoinBase,
+--@COMMIT SEPERATOR@--
+repository:C:\Users\adn0019\WORK\bitcoin\bitcoin\.git
+branch:refs/heads/master
+commit A:3bd25c010c5cd19a8d68869ac9dab1f2fa40bd50
+commit B:6edda062dc3c243604820867193725bfefea6015
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/wallet/rpcwallet.cpp
+changed code snippet:
+extern UniValue abortrescan(const JSONRPCRequest& request); // in rpcdump.cpp
+extern UniValue dumpprivkey(const JSONRPCRequest& request); // in rpcdump.cpp
+extern UniValue importprivkey(const JSONRPCRequest& request);
+extern UniValue importaddress(const JSONRPCRequest& request);
+extern UniValue importpubkey(const JSONRPCRequest& request);
+extern UniValue dumpwallet(const JSONRPCRequest& request);
+extern UniValue importwallet(const JSONRPCRequest& request);
+extern UniValue importprunedfunds(const JSONRPCRequest& request);
+extern UniValue removeprunedfunds(const JSONRPCRequest& request);
+extern UniValue importmulti(const JSONRPCRequest& request);
+extern UniValue rescanblockchain(const JSONRPCRequest& request);
+
+identifier:UniValue,abortrescan,JSONRPCRequest,request,UniValue,dumpprivkey,JSONRPCRequest,request,UniValue,importprivkey,JSONRPCRequest,request,UniValue,importaddress,JSONRPCRequest,request,UniValue,importpubkey,JSONRPCRequest,request,UniValue,dumpwallet,JSONRPCRequest,request,UniValue,importwallet,JSONRPCRequest,request,UniValue,importprunedfunds,JSONRPCRequest,request,UniValue,removeprunedfunds,JSONRPCRequest,request,UniValue,importmulti,JSONRPCRequest,request,UniValue,rescanblockchain,JSONRPCRequest,request,
+--@COMMIT SEPERATOR@--
+repository:C:\Users\adn0019\WORK\bitcoin\bitcoin\.git
+branch:refs/heads/master
+commit A:62d40f19836349787ab2d19e1c5213bdf7e0db34
+commit B:263b3777e73525b172f0ad61ea84c95d417c67ae
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/httprpc.h
+changed code snippet:
+bool StartREST();
+
+identifier:StartREST,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/init.cpp
+changed code snippet:
+    if (gArgs.GetBoolArg("-rest", DEFAULT_REST_ENABLE) && !StartREST())
+        return false;
+
+identifier:gArgs,GetBoolArg,DEFAULT_REST_ENABLE,StartREST,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/rest.cpp
+changed code snippet:
+bool StartREST()
+    return true;
+
+identifier:StartREST,
+--@COMMIT SEPERATOR@--
+repository:C:\Users\adn0019\WORK\bitcoin\bitcoin\.git
+branch:refs/heads/master
+commit A:263b3777e73525b172f0ad61ea84c95d417c67ae
+commit B:f083ec13c35a7fe257b0eb0249d6ba42212e5919
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/httprpc.h
+changed code snippet:
+void StartREST();
+
+identifier:StartREST,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/init.cpp
+changed code snippet:
+    if (gArgs.GetBoolArg("-rest", DEFAULT_REST_ENABLE)) StartREST();
+
+identifier:gArgs,GetBoolArg,DEFAULT_REST_ENABLE,StartREST,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/rest.cpp
+changed code snippet:
+void StartREST()
+
+identifier:StartREST,
+--@COMMIT SEPERATOR@--
+repository:C:\Users\adn0019\WORK\bitcoin\bitcoin\.git
+branch:refs/heads/master
+commit A:f083ec13c35a7fe257b0eb0249d6ba42212e5919
+commit B:58efc49b954f145ce39fc1047aca3534b7100a4f
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/httprpc.h
+changed code snippet:
+bool StartREST();
+
+identifier:StartREST,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/init.cpp
+changed code snippet:
+    if (gArgs.GetBoolArg("-rest", DEFAULT_REST_ENABLE) && !StartREST())
+        return false;
+
+identifier:gArgs,GetBoolArg,DEFAULT_REST_ENABLE,StartREST,
+++@DIFF ENTRY SEPERATOR@++
+changed file:src/rest.cpp
+changed code snippet:
+bool StartREST()
+    return true;
+
+identifier:StartREST,
+--@COMMIT SEPERATOR@--
