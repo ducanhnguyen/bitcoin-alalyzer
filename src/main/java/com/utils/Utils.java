@@ -164,7 +164,8 @@ public class Utils {
 	public static List<String> convertToList(String[] texts) {
 		List<String> output = new ArrayList<String>();
 		for (String text : texts)
-			output.add(text);
+			if (text.length() > 0)
+				output.add(text);
 		return output;
 	}
 }

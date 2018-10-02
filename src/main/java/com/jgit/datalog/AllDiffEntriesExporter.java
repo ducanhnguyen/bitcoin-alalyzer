@@ -47,7 +47,7 @@ public class AllDiffEntriesExporter {
 			String descriptionOfACommit = "";
 
 			// Add general information
-			String repo = diffEntries.getRepositoryFolder().getAbsolutePath();
+			String repo = diffEntries.getRepositoryFolder().getParentFile().getName();
 			descriptionOfACommit += REPOSITORY + repo + "\n";
 
 			String branchName = diffEntries.getBranchName();
@@ -56,8 +56,8 @@ public class AllDiffEntriesExporter {
 			CommitJgit commitA = diffEntries.getCommitA();
 			descriptionOfACommit += COMMITA + commitA.getCommit().getId().getName() + "\n";
 
-			CommitJgit commitB = diffEntries.getCommitB();
-			descriptionOfACommit += COMMITB + commitB.getCommit().getId().getName() + "\n";
+//			CommitJgit commitB = diffEntries.getCommitB();
+//			descriptionOfACommit += COMMITB + commitB.getCommit().getId().getName() + "\n";
 
 			for (MyDiffEntry diffEntry : diffEntries) {
 				// Add changed code snippet
@@ -68,7 +68,7 @@ public class AllDiffEntriesExporter {
 
 				String changedCodeSnippet = Utils
 						.convertToString(diffEntry.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
-				descriptionOfACommit += CHANGED_CODE_SNIPPET + "\n" + changedCodeSnippet + "\n";
+//				descriptionOfACommit += CHANGED_CODE_SNIPPET + "\n" + changedCodeSnippet + "\n";
 
 				// Add identifiers
 				AbstractIdentifierRetriever identifierAnalyzer = new RegularIdentifierRetriever();
@@ -116,10 +116,10 @@ public class AllDiffEntriesExporter {
 	public static final String BRANCH = "branch:";
 	public static final String COMMITA = "commit A:";
 	public static final String COMMITB = "commit B:";
-	public static final String CHANGED_FILE = "changed file:";
-	public static final String CHANGED_CODE_SNIPPET = "changed code snippet:";
-	public static final String DELIMITER_BETWEEN_COMMIT = "--@COMMIT SEPERATOR@--";
-	public static final String DELIMITER_BETWEEN_DIFF = "++@DIFF ENTRY SEPERATOR@++";
+	public static final String CHANGED_FILE = "changed-file:";
+	public static final String CHANGED_CODE_SNIPPET = "changed-code-snippet:";
+	public static final String DELIMITER_BETWEEN_COMMIT = "--@COMMIT-SEPERATOR@--";
+	public static final String DELIMITER_BETWEEN_DIFF = "--@DIFF-ENTRY-SEPERATOR@--";
 	public static final String IDENTIFIER = "identifier:";
 
 	final int MAXIMUM_NUMBER_OF_COMMITS_IN_A_FILE = 100;
