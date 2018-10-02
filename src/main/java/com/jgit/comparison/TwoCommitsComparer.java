@@ -19,12 +19,12 @@ public class TwoCommitsComparer {
 
 	public static void main(String[] args) {
 		System.out.println("Parse two repo");
-		DiffsRetriever diffsRetrieverOfRepoA = new DiffsRetriever();
+		DiffEntriesRetriever diffsRetrieverOfRepoA = new DiffEntriesRetriever();
 		diffsRetrieverOfRepoA.setRepositoryFolder(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
 		diffsRetrieverOfRepoA.setBranchName(CommitRetriever.MASTER);
 		List<MyDiffEntries> diffEntriesOfRepoA = diffsRetrieverOfRepoA.retrieveAllDiffEntries();
 
-		DiffsRetriever diffsRetrieverOfRepoB = new DiffsRetriever();
+		DiffEntriesRetriever diffsRetrieverOfRepoB = new DiffEntriesRetriever();
 		diffsRetrieverOfRepoB.setRepositoryFolder(IConfiguration.Jgit_BitcoinABC.BITCOINABC_REPO);
 		diffsRetrieverOfRepoB.setBranchName(CommitRetriever.MASTER);
 		List<MyDiffEntries> diffEntriesOfRepoB = diffsRetrieverOfRepoB.retrieveAllDiffEntries();

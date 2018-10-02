@@ -22,13 +22,13 @@ public interface IConfiguration {
 	}
 
 	interface Jgit_Bitcoin {
-//		File BITCOIN_REPO = new File("W:\\bitcoin\\bitcoin\\.git");
-		File BITCOIN_REPO = new File("F:\\workspace\\bitcoin\\bitcoin\\.git");
+		File BITCOIN_REPO = new File("C:\\Users\\adn0019\\WORK\\bitcoin\\bitcoin\\.git");
+//		File BITCOIN_REPO = new File("F:\\workspace\\bitcoin\\bitcoin\\.git");
 	}
 
 	interface Jgit_BitcoinABC {
-//		File BITCOINABC_REPO = new File("W:\\bitcoin\\bitcoin\\.git");
-		File BITCOINABC_REPO = new File("F:\\workspace\\bitcoin\\bitcoin-abc\\.git");
+		File BITCOINABC_REPO = new File("C:\\Users\\adn0019\\WORK\\bitcoin\\bitcoin-abc\\.git");
+//		File BITCOINABC_REPO = new File("F:\\workspace\\bitcoin\\bitcoin-abc\\.git");
 	}
 
 	String[] COMMIT_FILE_HEADER = new String[] { "commit", "author", "date", "url" };

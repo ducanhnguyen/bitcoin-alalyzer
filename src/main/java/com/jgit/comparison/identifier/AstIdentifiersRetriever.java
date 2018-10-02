@@ -1,4 +1,4 @@
-package com.jgit.comparison;
+package com.jgit.comparison.identifier;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,9 +24,7 @@ import com.utils.Utils;
  * @author Duc-Anh Nguyen
  *
  */
-public class IdentifiersRetriever {
-	private String codeSnippet = new String();
-	private List<String> identifiers = new ArrayList<String>();
+public class AstIdentifiersRetriever extends AbstractIdentifierRetriever {
 
 	public static void main(String[] args) {
 //		String codeSnippet = "int test(){int a=0;a++;}";
@@ -34,21 +32,21 @@ public class IdentifiersRetriever {
 
 		if (snippetFile.exists()) {
 			String codeSnippet = Utils.convertToString(Utils.readFileContent(snippetFile));
-			IdentifiersRetriever identifierRetriever = new IdentifiersRetriever();
+			AstIdentifiersRetriever identifierRetriever = new AstIdentifiersRetriever();
 			identifierRetriever.setCodeSnippet(codeSnippet);
-			List<String> identifiers = identifierRetriever.getIdentifier();
+			List<String> identifiers = identifierRetriever.getIdentifiers();
 			System.out.println("identifiers: " + identifiers);
 		}
 	}
 
-	public List<String> getIdentifier() {
+	public List<String> findIdentifiers() {
 		List<String> identifiers = new ArrayList<String>();
 
-		if (codeSnippet.length() > 0) {
+		if (getCodeSnippet().length() > 0) {
 			// create ast of the code snippet
-			ILanguage lang = codeSnippet.toLowerCase().endsWith(".c") ? GCCLanguage.getDefault()
+			ILanguage lang = getCodeSnippet().toLowerCase().endsWith(".c") ? GCCLanguage.getDefault()
 					: GPPLanguage.getDefault();
-			IASTTranslationUnit u = ASTUtils.getIASTTranslationUnit(codeSnippet.toCharArray(), "", null, lang);
+			IASTTranslationUnit u = ASTUtils.getIASTTranslationUnit(getCodeSnippet().toCharArray(), "", null, lang);
 
 			// get identifiers
 			IASTNode firstChild = u.getTranslationUnit().getChildren()[0];
@@ -88,19 +86,4 @@ public class IdentifiersRetriever {
 		return astIdentifiers;
 	}
 
-	public String getCodeSnippet() {
-		return codeSnippet;
-	}
-
-	public void setCodeSnippet(String codeSnippet) {
-		this.codeSnippet = codeSnippet;
-	}
-
-	public List<String> getIdentifiers() {
-		return identifiers;
-	}
-
-	public void setIdentifiers(List<String> identifiers) {
-		this.identifiers = identifiers;
-	}
 }

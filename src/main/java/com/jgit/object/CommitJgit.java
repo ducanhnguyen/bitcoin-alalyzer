@@ -59,7 +59,7 @@ public final class CommitJgit {
 		 */
 		System.out.println("------------------");
 		CommitJgit previousCommit = commits.get(commitID + 1);
-		List<ChangedFile> changedFiles = aCommit.getChangedFiles(previousCommit);
+		List<ChangedFile> changedFiles = aCommit.findChangedFiles(previousCommit);
 		System.out.println("changed files: " + changedFiles.toString());
 
 		/**
@@ -115,7 +115,7 @@ public final class CommitJgit {
 	 * @param previousCommit A previous commit you want to compare
 	 * @return
 	 */
-	public List<ChangedFile> getChangedFiles(CommitJgit previousCommit) {
+	public List<ChangedFile> findChangedFiles(CommitJgit previousCommit) {
 		List<ChangedFile> changedFiles = new ArrayList<ChangedFile>();
 		Repository repository = getParent().getRepository();
 

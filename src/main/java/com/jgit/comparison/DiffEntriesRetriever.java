@@ -13,6 +13,7 @@ import com.jgit.object.ChangedFile;
 import com.jgit.object.CommitJgit;
 import com.jgit.object.CommitsJgit;
 import com.utils.IConfiguration;
+import com.utils.Utils;
 
 /**
  * Get all DiffEntry in a branch of a repository
@@ -20,18 +21,18 @@ import com.utils.IConfiguration;
  * @author Duc-Anh Nguyen
  *
  */
-public class DiffsRetriever {
+public class DiffEntriesRetriever {
 	private File repositoryFolder = null;
 	private String branchName = new String();
 
 	public static void main(String[] args) {
-		DiffsRetriever retriever = new DiffsRetriever();
+		DiffEntriesRetriever retriever = new DiffEntriesRetriever();
 
 		retriever.setRepositoryFolder(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
 		retriever.setBranchName(CommitRetriever.MASTER);
 
 		List<MyDiffEntries> allDiffEntries = retriever.retrieveAllDiffEntries();
-
+		
 		MyDiffEntries firstDiffEntries = allDiffEntries.get(0);
 		MyDiffEntry firstDiff = firstDiffEntries.get(0);
 		System.out.println("File: " + firstDiff.getChangedFile().getNameFile());
@@ -41,7 +42,7 @@ public class DiffsRetriever {
 				"Changed code snippets:" + firstDiff.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
 	}
 
-	public DiffsRetriever() {
+	public DiffEntriesRetriever() {
 	}
 
 	public List<MyDiffEntries> retrieveAllDiffEntries() {
@@ -57,7 +58,7 @@ public class DiffsRetriever {
 			/**
 			 * Get all diff entries. We do not parse the first commit of the repo.
 			 */
-			for (int i = 0; i < commits.size() - 1; i++) {
+			for (int i = 0; i < 400; i++) {
 				System.out.println("[" + repositoryFolder.getParentFile().getName() + "] Parse commit " + i + "/"
 						+ (commits.size() - 1) + " [" + commits.get(i).getCommit().getName() + "]");
 				CommitJgit currentCommit = commits.get(i);
@@ -67,9 +68,10 @@ public class DiffsRetriever {
 				diffEntries.setCommitA(currentCommit);
 				diffEntries.setCommitB(previousCommit);
 				diffEntries.setRepositoryFolder(repositoryFolder);
-				
+				diffEntries.setBranchName(branchName);
+
 				// Compare two continuous commits
-				List<ChangedFile> changedFiles = currentCommit.getChangedFiles(previousCommit);
+				List<ChangedFile> changedFiles = currentCommit.findChangedFiles(previousCommit);
 
 				for (ChangedFile changedFile : changedFiles)
 
@@ -81,7 +83,6 @@ public class DiffsRetriever {
 						if (changedFile.getDiffEntry().getChangeType() == DiffEntry.ChangeType.DELETE
 								|| changedFile.getDiffEntry().getChangeType() == DiffEntry.ChangeType.MODIFY) {
 							diffEntries.add(diffEntry);
-//							System.out.println(diffEntry.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
 						}
 
 					}
@@ -92,6 +93,7 @@ public class DiffsRetriever {
 		}
 		return allDiffEntries;
 	}
+
 
 	private boolean isCOrCppOrJavaLanguage(String name) {
 		return name.endsWith(".c") || name.endsWith(".cpp") || name.endsWith(".cc") || name.endsWith(".h")
@@ -113,5 +115,6 @@ public class DiffsRetriever {
 	public String getBranchName() {
 		return branchName;
 	}
+
 
 }

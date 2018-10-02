@@ -16,12 +16,14 @@ public class MyDiffEntries extends ArrayList<MyDiffEntry> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	// Two compared commits
 	private CommitJgit commitA; // the newer commit
 	private CommitJgit commitB; // the previous commit
 
 	private File repositoryFolder;
+
+	private String branchName = "";
 
 	public CommitJgit getCommitA() {
 		return commitA;
@@ -45,6 +47,14 @@ public class MyDiffEntries extends ArrayList<MyDiffEntry> {
 
 	public File getRepositoryFolder() {
 		return repositoryFolder;
+	}
+
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
 
 	@Override

@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.jgit.comparison.identifier.RegularIdentifierRetriever;
+
 public class JaccardSimilarity extends AbstractSimilarity {
 	public static void main(String[] args) {
 		JaccardSimilarity sim = new JaccardSimilarity();
@@ -22,14 +24,14 @@ public class JaccardSimilarity extends AbstractSimilarity {
 	public double compare() {
 		double sim = 0.0f;
 		if (getSource().length() > 0 && getTarget().length() > 0) {
-			TokenSplitter tokenSplitter = new TokenSplitter();
+			RegularIdentifierRetriever tokenSplitter = new RegularIdentifierRetriever();
 
-			tokenSplitter.setSrc(getSource());
-			List<String> tokensinSource = tokenSplitter.getTokens();
+			tokenSplitter.setCodeSnippet(getSource());
+			List<String> tokensinSource = tokenSplitter.getIdentifiers();
 			System.out.println("Tokens A: " + tokensinSource);
 
-			tokenSplitter.setSrc(getTarget());
-			List<String> tokensinTarget = tokenSplitter.getTokens();
+			tokenSplitter.setCodeSnippet(getTarget());
+			List<String> tokensinTarget = tokenSplitter.getIdentifiers();
 			System.out.println("Tokens B: " + tokensinTarget);
 
 			Set<String> unionSet = new HashSet<String>();

@@ -47,7 +47,7 @@ public class ChangedFile {
 		List<String> differences = new ArrayList<String>();
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		DiffFormatter formatter = new DiffFormatter(stream);
-
+		
 		if (currentCommit != null && diffEntry != null)
 			formatter.setRepository(currentCommit.getParent().getRepository());
 
