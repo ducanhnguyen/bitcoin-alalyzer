@@ -18,27 +18,27 @@ public class MyDiffEntries extends ArrayList<MyDiffEntry> {
 	private static final long serialVersionUID = 1L;
 
 	// Two compared commits
-	private CommitJgit commitA; // the newer commit
-	private CommitJgit commitB; // the previous commit
+	private CommitJgit newCommit; // the newer commit
+	private CommitJgit oldCommit; // the previous commit
 
 	private File repositoryFolder;
 
 	private String branchName = "";
 
-	public CommitJgit getCommitA() {
-		return commitA;
+	public CommitJgit getNewCommit() {
+		return newCommit;
 	}
 
-	public void setCommitA(CommitJgit commitA) {
-		this.commitA = commitA;
+	public void setNewCommit(CommitJgit commitA) {
+		this.newCommit = commitA;
 	}
 
-	public CommitJgit getCommitB() {
-		return commitB;
+	public CommitJgit getOldCommit() {
+		return oldCommit;
 	}
 
-	public void setCommitB(CommitJgit commitB) {
-		this.commitB = commitB;
+	public void setOldCommit(CommitJgit commitB) {
+		this.oldCommit = commitB;
 	}
 
 	public void setRepositoryFolder(File repo) {
@@ -59,8 +59,8 @@ public class MyDiffEntries extends ArrayList<MyDiffEntry> {
 
 	@Override
 	public String toString() {
-		String output = "Commit: " + getCommitA().getCommit().getName() + " ["
-				+ getCommitA().getCommit().getShortMessage() + "]" + "\n";
+		String output = "Commit: " + getNewCommit().getCommit().getName() + " ["
+				+ getNewCommit().getCommit().getShortMessage() + "]" + "\n";
 		output += "Repo: " + getRepositoryFolder().getAbsolutePath() + "\n";
 		for (MyDiffEntry entry : this) {
 			output += entry + "\n\n";

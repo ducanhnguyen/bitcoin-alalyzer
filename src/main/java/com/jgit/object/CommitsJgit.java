@@ -29,6 +29,14 @@ public class CommitsJgit extends ArrayList<CommitJgit> {
 		}
 	}
 
+	public CommitJgit findCommitById(String id) {
+		for (CommitJgit commitJGit : this) {
+			if (commitJGit.getCommit().getId().getName().equals(id))
+				return commitJGit;
+		}
+		return null;
+	}
+
 	@Override
 	@Deprecated
 	public boolean add(CommitJgit arg0) {

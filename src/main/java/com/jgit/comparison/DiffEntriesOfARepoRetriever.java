@@ -13,7 +13,6 @@ import com.jgit.object.ChangedFile;
 import com.jgit.object.CommitJgit;
 import com.jgit.object.CommitsJgit;
 import com.utils.IConfiguration;
-import com.utils.Utils;
 
 /**
  * Get all DiffEntry in a branch of a repository
@@ -21,31 +20,31 @@ import com.utils.Utils;
  * @author Duc-Anh Nguyen
  *
  */
-public class DiffEntriesRetriever {
+public class DiffEntriesOfARepoRetriever {
 	private File repositoryFolder = null;
 	private String branchName = new String();
 
 	public static void main(String[] args) {
-		DiffEntriesRetriever retriever = new DiffEntriesRetriever();
+		DiffEntriesOfARepoRetriever retriever = new DiffEntriesOfARepoRetriever();
 
 		retriever.setRepositoryFolder(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
 		retriever.setBranchName(CommitRetriever.MASTER);
 
-		List<MyDiffEntries> allDiffEntries = retriever.retrieveAllDiffEntries();
-		
+		List<MyDiffEntries> allDiffEntries = retriever.retrieveAllDiffEntriesOfRepo();
+
 		MyDiffEntries firstDiffEntries = allDiffEntries.get(0);
 		MyDiffEntry firstDiff = firstDiffEntries.get(0);
 		System.out.println("File: " + firstDiff.getChangedFile().getNameFile());
-		System.out.println("Commit A: " + firstDiff.getParent().getCommitA().getCommit().getName());
-		System.out.println("Commit B: " + firstDiff.getParent().getCommitB().getCommit().getName());
+		System.out.println("Commit A: " + firstDiff.getParent().getNewCommit().getCommit().getName());
+		System.out.println("Commit B: " + firstDiff.getParent().getOldCommit().getCommit().getName());
 		System.out.println(
 				"Changed code snippets:" + firstDiff.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
 	}
 
-	public DiffEntriesRetriever() {
+	public DiffEntriesOfARepoRetriever() {
 	}
 
-	public List<MyDiffEntries> retrieveAllDiffEntries() {
+	public List<MyDiffEntries> retrieveAllDiffEntriesOfRepo() {
 		List<MyDiffEntries> allDiffEntries = new ArrayList<MyDiffEntries>();
 		if (repositoryFolder.exists()) {
 			/**
@@ -58,20 +57,24 @@ public class DiffEntriesRetriever {
 			/**
 			 * Get all diff entries. We do not parse the first commit of the repo.
 			 */
-			for (int i = 0; i < 400; i++) {
+//			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < commits.size(); i++) {
 				System.out.println("[" + repositoryFolder.getParentFile().getName() + "] Parse commit " + i + "/"
 						+ (commits.size() - 1) + " [" + commits.get(i).getCommit().getName() + "]");
 				CommitJgit currentCommit = commits.get(i);
-				CommitJgit previousCommit = commits.get(i + 1);
 
 				MyDiffEntries diffEntries = new MyDiffEntries();
-				diffEntries.setCommitA(currentCommit);
-				diffEntries.setCommitB(previousCommit);
+				diffEntries.setNewCommit(currentCommit);
+
+				if (currentCommit.getCommit().getParentCount() >= 1) {
+					String previousCommitId = currentCommit.getCommit().getParent(0).getId().getName();
+					diffEntries.setOldCommit(commits.findCommitById(previousCommitId));
+				}
 				diffEntries.setRepositoryFolder(repositoryFolder);
 				diffEntries.setBranchName(branchName);
 
 				// Compare two continuous commits
-				List<ChangedFile> changedFiles = currentCommit.findChangedFiles(previousCommit);
+				List<ChangedFile> changedFiles = currentCommit.compareWithPreviousCommit();
 
 				for (ChangedFile changedFile : changedFiles)
 
@@ -94,7 +97,6 @@ public class DiffEntriesRetriever {
 		return allDiffEntries;
 	}
 
-
 	private boolean isCOrCppOrJavaLanguage(String name) {
 		return name.endsWith(".c") || name.endsWith(".cpp") || name.endsWith(".cc") || name.endsWith(".h")
 				|| name.endsWith(".hpp") || name.endsWith(".java");
@@ -115,6 +117,5 @@ public class DiffEntriesRetriever {
 	public String getBranchName() {
 		return branchName;
 	}
-
 
 }

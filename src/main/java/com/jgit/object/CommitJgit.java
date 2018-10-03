@@ -59,7 +59,7 @@ public final class CommitJgit {
 		 */
 		System.out.println("------------------");
 		CommitJgit previousCommit = commits.get(commitID + 1);
-		List<ChangedFile> changedFiles = aCommit.findChangedFiles(previousCommit);
+		List<ChangedFile> changedFiles = aCommit.compareWithPreviousCommit();
 		System.out.println("changed files: " + changedFiles.toString());
 
 		/**
@@ -115,7 +115,7 @@ public final class CommitJgit {
 	 * @param previousCommit A previous commit you want to compare
 	 * @return
 	 */
-	public List<ChangedFile> findChangedFiles(CommitJgit previousCommit) {
+	public List<ChangedFile> compareWithPreviousCommit() {
 		List<ChangedFile> changedFiles = new ArrayList<ChangedFile>();
 		Repository repository = getParent().getRepository();
 
@@ -123,8 +123,9 @@ public final class CommitJgit {
 			ObjectReader reader = repository.newObjectReader();
 			// Create the parser of the current commit
 			CanonicalTreeParser currentTree = new CanonicalTreeParser();
+			RevTree treeOfCurrentCommit = this.getCommit().getTree();
 			try {
-				currentTree.reset(reader, this.getCommit().getTree());
+				currentTree.reset(reader, treeOfCurrentCommit);
 			} catch (IncorrectObjectTypeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -133,30 +134,37 @@ public final class CommitJgit {
 
 			// Create the parser of a previous commit
 			CanonicalTreeParser previousTree = new CanonicalTreeParser();
-			try {
-				previousTree.reset(reader, previousCommit.getCommit().getTree());
-			} catch (IncorrectObjectTypeException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
+			if (this.getCommit().getParentCount() >= 1) {
+				RevTree treeOfPreviousCommit = this.getCommit().getParent(0).getTree();
+				try {
+					previousTree.reset(reader, treeOfPreviousCommit);
+				} catch (IncorrectObjectTypeException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
-			// Get the list of changed files
-			Git git = new Git(repository);
-			List<DiffEntry> diffEntries = new ArrayList<DiffEntry>();
-			try {
-				diffEntries = git.diff().setNewTree(currentTree).setOldTree(previousTree).call();
-			} catch (GitAPIException e) {
-				e.printStackTrace();
-			}
+				// Get the list of changed files
+				Git git = new Git(repository);
+				List<DiffEntry> diffEntries = new ArrayList<DiffEntry>();
+				try {
+					diffEntries = git.diff().setNewTree(currentTree).setOldTree(previousTree).call();
+				} catch (GitAPIException e) {
+					e.printStackTrace();
+				}
 
-			for (DiffEntry diffEntry : diffEntries) {
-				ChangedFile changedFile = new ChangedFile();
-				changedFile.setPreviousCommit(previousCommit);
-				changedFile.setCurrentCommit(this);
-				changedFile.setDiffEntry(diffEntry);
+				for (DiffEntry diffEntry : diffEntries) {
+					ChangedFile changedFile = new ChangedFile();
 
-				changedFiles.add(changedFile);
+					CommitJgit previousCommitJGit = this.getParent()
+							.findCommitById(this.getCommit().getParent(0).getId().getName());
+					changedFile.setPreviousCommit(previousCommitJGit);
+					changedFile.setCurrentCommit(this);
+					changedFile.setDiffEntry(diffEntry);
+
+					changedFiles.add(changedFile);
+				}
 			}
 		}
 		return changedFiles;

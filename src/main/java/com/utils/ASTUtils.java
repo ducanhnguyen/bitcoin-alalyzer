@@ -1,4 +1,4 @@
-package com.sample.cdt;
+package com.utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,13 +20,12 @@ import org.eclipse.cdt.core.parser.IncludeFileContentProvider;
 import org.eclipse.cdt.core.parser.ScannerInfo;
 import org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTIdExpression;
 
-import com.utils.Utils;
-
 public class ASTUtils {
-	public static void main(String[] args) {
-		File snippetFile = new File ("./data/Csample.cpp");
-		ASTUtils.printTree(snippetFile);
-	}
+	
+//	public static void main(String[] args) {
+//		File snippetFile = new File ("./data/Csample.cpp");
+//		ASTUtils.printTree(snippetFile);
+//	}
 
 	public static IASTTranslationUnit getIASTTranslationUnit(char[] source, String filePath,
 			Map<String, String> macroList, ILanguage lang) {

@@ -1,88 +1,68 @@
 package com.jgit.datalog;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-import com.utils.Utils;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jgit.datalog.object.DiffEntriesOfARepo;
 
 public class AllDiffEntriesReader {
 	// The file containing a set of DiffEntry of commits
-	private File diffEntriesFile = null;
-
-	List<CommitLog> commitsLog = new ArrayList<CommitLog>();
+	private File diffEntriesFolder = null;
 
 	public static void main(String[] args) {
 		AllDiffEntriesReader reader = new AllDiffEntriesReader();
-		reader.setDiffEntriesFile(new File("./bitcoin/commit/master1-100.txt"));
-		List<CommitLog> commitsLog = reader.loadCommitsLog();
-		System.out.println(commitsLog.get(0));
+		reader.setDiffEntriesFolder(new File("./bitcoin/commit"));
+		DiffEntriesOfARepo diffEntriesOfARepo = reader.readData();
+		System.out.println(diffEntriesOfARepo.getBranch());
+		System.out.println(diffEntriesOfARepo.getCommits().size());
 	}
 
 	public AllDiffEntriesReader() {
 	}
 
-	public List<CommitLog> loadCommitsLog() {
-		commitsLog = new ArrayList<CommitLog>();
+	public DiffEntriesOfARepo readData() {
+		DiffEntriesOfARepo output = null;
 
-		if (diffEntriesFile.exists()) {
-			String content = Utils.convertToString(Utils.readFileContent(diffEntriesFile));
-			String[] commits = content.split(AllDiffEntriesExporter.DELIMITER_BETWEEN_COMMIT);
+		ObjectMapper mapper = new ObjectMapper();
 
-			for (String commit : commits) {
-				CommitLog commitLog = new CommitLog();
+		if (getDiffEntriesFolder().exists()) {
+			File[] listOfFiles = getDiffEntriesFolder().listFiles();
 
-				int posDescription = commit.indexOf(AllDiffEntriesExporter.DELIMITER_BETWEEN_DIFF);
+			for (File file : listOfFiles)
 
-				// Get repo, branch, and commit ID
-				String description = commit.substring(0, posDescription - 1);
-				{
-					String[] lines = description.split("\n");
-					for (String line : lines) {
-						int pos = line.indexOf(":");
-						if (line.startsWith(AllDiffEntriesExporter.REPOSITORY)) {
-							commitLog.setRepo(line.substring(pos + 1));
+				if (file.getName().endsWith(".json")) {
 
-						} else if (line.startsWith(AllDiffEntriesExporter.BRANCH)) {
-							commitLog.setBranch(line.substring(pos + 1));
+					DiffEntriesOfARepo outputItem = null;
+					try {
+						// Convert JSON string from file to Object
+						outputItem = mapper.readValue(file, DiffEntriesOfARepo.class);
 
-						} else if (line.startsWith(AllDiffEntriesExporter.COMMITA)) {
-							commitLog.setCommitID(line.substring(pos + 1));
-						}
+					} catch (JsonGenerationException e) {
+						e.printStackTrace();
+					} catch (JsonMappingException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
+
+					if (output == null)
+						output = outputItem;
+					else if (outputItem != null)
+						output.getCommits().addAll(outputItem.getCommits());
 				}
-				// Get diff entries
-				String[] diffEntries = commit
-						.substring(posDescription + AllDiffEntriesExporter.DELIMITER_BETWEEN_DIFF.length())
-						.split(AllDiffEntriesExporter.DELIMITER_BETWEEN_DIFF);
 
-				for (String diffEntry : diffEntries) {
-					DiffEntryLog diffEntryLog = new DiffEntryLog();
-
-					String[] lines = diffEntry.split("\n");
-
-					for (String line : lines) {
-						int pos = line.indexOf(":");
-
-						if (line.startsWith(AllDiffEntriesExporter.CHANGED_FILE)) {
-							diffEntryLog.setNameOfChangedFile(line.substring(pos + 1));
-
-						} else if (line.startsWith(AllDiffEntriesExporter.IDENTIFIER)) {
-							String[] identifiers = line.substring(pos + 1).split(",");
-							diffEntryLog.setIdentifier(Utils.convertToList(identifiers));
-						}
-					}
-				}
-			}
 		}
-		return commitsLog;
+		return output;
 	}
 
-	public void setDiffEntriesFile(File diffEntriesFile) {
-		this.diffEntriesFile = diffEntriesFile;
+	public void setDiffEntriesFolder(File diffEntriesFile) {
+		this.diffEntriesFolder = diffEntriesFile;
 	}
 
-	public File getDiffEntriesFile() {
-		return diffEntriesFile;
+	public File getDiffEntriesFolder() {
+		return diffEntriesFolder;
 	}
 }

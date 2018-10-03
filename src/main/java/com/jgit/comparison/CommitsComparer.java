@@ -10,24 +10,24 @@ import com.jgit.comparison.object.MyDiffEntry;
 import com.utils.IConfiguration;
 import com.utils.Utils;
 
-public class TwoCommitsComparer {
+public class CommitsComparer {
 	private MyDiffEntries diffEntriesOfCommitA = null;
 	private MyDiffEntries diffEntriesOfCommitB = null;
 
-	public TwoCommitsComparer() {
+	public CommitsComparer() {
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Parse two repo");
-		DiffEntriesRetriever diffsRetrieverOfRepoA = new DiffEntriesRetriever();
+		DiffEntriesOfARepoRetriever diffsRetrieverOfRepoA = new DiffEntriesOfARepoRetriever();
 		diffsRetrieverOfRepoA.setRepositoryFolder(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
 		diffsRetrieverOfRepoA.setBranchName(CommitRetriever.MASTER);
-		List<MyDiffEntries> diffEntriesOfRepoA = diffsRetrieverOfRepoA.retrieveAllDiffEntries();
+		List<MyDiffEntries> diffEntriesOfRepoA = diffsRetrieverOfRepoA.retrieveAllDiffEntriesOfRepo();
 
-		DiffEntriesRetriever diffsRetrieverOfRepoB = new DiffEntriesRetriever();
+		DiffEntriesOfARepoRetriever diffsRetrieverOfRepoB = new DiffEntriesOfARepoRetriever();
 		diffsRetrieverOfRepoB.setRepositoryFolder(IConfiguration.Jgit_BitcoinABC.BITCOINABC_REPO);
 		diffsRetrieverOfRepoB.setBranchName(CommitRetriever.MASTER);
-		List<MyDiffEntries> diffEntriesOfRepoB = diffsRetrieverOfRepoB.retrieveAllDiffEntries();
+		List<MyDiffEntries> diffEntriesOfRepoB = diffsRetrieverOfRepoB.retrieveAllDiffEntriesOfRepo();
 
 		System.out.println("\n\nCompare two repo");
 		int total = diffEntriesOfRepoA.size() * diffEntriesOfRepoB.size();
@@ -36,7 +36,7 @@ public class TwoCommitsComparer {
 			for (int j = 0; j < diffEntriesOfRepoB.size(); j++) {
 				System.out.println("\n---------\n[Step " + (++count) + "/" + total + "]");
 				System.out.println("We compare two commits:\n");
-				TwoCommitsComparer comparer = new TwoCommitsComparer();
+				CommitsComparer comparer = new CommitsComparer();
 				MyDiffEntries A = diffEntriesOfRepoA.get(i);
 				MyDiffEntries B = diffEntriesOfRepoB.get(j);
 				System.out.println("1. " + A.toString());
@@ -45,7 +45,7 @@ public class TwoCommitsComparer {
 				// Calculate similarity between two commits
 				comparer.setDiffEntriesOfCommitA(A);
 				comparer.setDiffEntriesOfCommitB(B);
-				List<SimilarityPair> pairs = comparer.compareTwoCommitsByDiffEntries();
+				List<SimilarityPair> pairs = comparer.compareTwoCommits();
 
 				double sumSim = 0.0f;
 				for (SimilarityPair p : pairs) {
@@ -55,8 +55,8 @@ public class TwoCommitsComparer {
 
 				if (commitSimilarity >= COMMIT_THRESHOLD_SIMILARITY) {
 					String output = new String();
-					output += "--------------------\nCommit A: " + A.getCommitA().getCommit().getName() + "\n";
-					output += "Commit B: " + B.getCommitA().getCommit().getName() + "\n";
+					output += "--------------------\nCommit A: " + A.getNewCommit().getCommit().getName() + "\n";
+					output += "Commit B: " + B.getNewCommit().getCommit().getName() + "\n";
 					output += "Commit similarity  = " + commitSimilarity + "\n";
 					output += pairs.toString() + "\n\n";
 
@@ -70,8 +70,8 @@ public class TwoCommitsComparer {
 			}
 	}
 
-	public List<SimilarityPair> compareTwoCommitsByDiffEntries() {
-		List<SimilarityPair> pairs = new ArrayList<TwoCommitsComparer.SimilarityPair>();
+	public List<SimilarityPair> compareTwoCommits() {
+		List<SimilarityPair> pairs = new ArrayList<CommitsComparer.SimilarityPair>();
 
 		if (diffEntriesOfCommitA != null && diffEntriesOfCommitB != null) {
 

@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.List;
 
 import com.utils.CsvManager;
-import com.utils.DescriptionOfACommitRetriever;
 import com.utils.IConfiguration;
 import com.utils.Utils;
 

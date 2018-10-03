@@ -9,9 +9,6 @@ import com.jgit.comparison.identifier.RegularIdentifierRetriever;
 public class JaccardSimilarity extends AbstractSimilarity {
 	public static void main(String[] args) {
 		JaccardSimilarity sim = new JaccardSimilarity();
-//	sim.setSource("x[0].vout[0].scriptPubKey << ToByteVector(key[0].GetPubKey()) << OP_CHECKSIG;");
-//	sim.setTarget("y[0].vout[1].scriptPubKey << ToByteVector(key[1].GetPubKey()) << OP_CHECKSIG;");
-
 		sim.setSource("xxx yyy zzz zzzk");
 		sim.setTarget("xxx yyy zzz");
 		System.out.println(sim.compare());

@@ -1,4 +1,4 @@
-package com.utils;
+package com.egit;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Base64;
-import java.util.concurrent.TimeUnit;
+
+import com.utils.IConfiguration;
+import com.utils.IPersonalInformation;
 
 /**
  * Create a simple Java client to send “GET” request

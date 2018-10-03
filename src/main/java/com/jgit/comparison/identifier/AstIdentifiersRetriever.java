@@ -15,7 +15,7 @@ import org.eclipse.cdt.core.model.ILanguage;
 import org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression;
 import org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTIdExpression;
 
-import com.sample.cdt.ASTUtils;
+import com.utils.ASTUtils;
 import com.utils.Utils;
 
 /**
@@ -27,7 +27,6 @@ import com.utils.Utils;
 public class AstIdentifiersRetriever extends AbstractIdentifierRetriever {
 
 	public static void main(String[] args) {
-//		String codeSnippet = "int test(){int a=0;a++;}";
 		File snippetFile = new File("./data/Csample.cpp");
 
 		if (snippetFile.exists()) {
