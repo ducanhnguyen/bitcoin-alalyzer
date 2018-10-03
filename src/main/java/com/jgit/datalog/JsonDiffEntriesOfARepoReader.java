@@ -8,19 +8,19 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jgit.datalog.object.DiffEntriesOfARepo;
 
-public class AllDiffEntriesReader {
+public class JsonDiffEntriesOfARepoReader {
 	// The file containing a set of DiffEntry of commits
 	private File diffEntriesFolder = null;
 
 	public static void main(String[] args) {
-		AllDiffEntriesReader reader = new AllDiffEntriesReader();
+		JsonDiffEntriesOfARepoReader reader = new JsonDiffEntriesOfARepoReader();
 		reader.setDiffEntriesFolder(new File("./bitcoin/commit"));
 		DiffEntriesOfARepo diffEntriesOfARepo = reader.readData();
 		System.out.println(diffEntriesOfARepo.getBranch());
 		System.out.println(diffEntriesOfARepo.getCommits().size());
 	}
 
-	public AllDiffEntriesReader() {
+	public JsonDiffEntriesOfARepoReader() {
 	}
 
 	public DiffEntriesOfARepo readData() {

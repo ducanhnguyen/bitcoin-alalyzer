@@ -10,11 +10,11 @@ import com.jgit.comparison.object.MyDiffEntry;
 import com.utils.IConfiguration;
 import com.utils.Utils;
 
-public class CommitsComparer {
+public class DirectCommitsComparator extends AbstractComparer {
 	private MyDiffEntries diffEntriesOfCommitA = null;
 	private MyDiffEntries diffEntriesOfCommitB = null;
 
-	public CommitsComparer() {
+	public DirectCommitsComparator() {
 	}
 
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class CommitsComparer {
 			for (int j = 0; j < diffEntriesOfRepoB.size(); j++) {
 				System.out.println("\n---------\n[Step " + (++count) + "/" + total + "]");
 				System.out.println("We compare two commits:\n");
-				CommitsComparer comparer = new CommitsComparer();
+				DirectCommitsComparator comparer = new DirectCommitsComparator();
 				MyDiffEntries A = diffEntriesOfRepoA.get(i);
 				MyDiffEntries B = diffEntriesOfRepoB.get(j);
 				System.out.println("1. " + A.toString());
@@ -71,7 +71,7 @@ public class CommitsComparer {
 	}
 
 	public List<SimilarityPair> compareTwoCommits() {
-		List<SimilarityPair> pairs = new ArrayList<CommitsComparer.SimilarityPair>();
+		List<SimilarityPair> pairs = new ArrayList<DirectCommitsComparator.SimilarityPair>();
 
 		if (diffEntriesOfCommitA != null && diffEntriesOfCommitB != null) {
 
