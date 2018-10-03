@@ -3,7 +3,11 @@ package com.jgit.datalog;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+
+import org.eclipse.jgit.lib.PersonIdent;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -30,13 +34,23 @@ import com.utils.Utils;
 public class JsonDiffEntriesOfARepoExporter extends AbstractDiffExporter {
 
 	public static void main(String[] args) {
+		// BitcoinABC
 		DiffEntriesOfARepoRetriever retriever = new DiffEntriesOfARepoRetriever();
-		retriever.setRepositoryFolder(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
+		retriever.setRepositoryFolder(IConfiguration.Jgit_BitcoinABC.BITCOINABC_REPO);
 		retriever.setBranchName(CommitRetriever.MASTER);
 		List<MyDiffEntries> allDiffEntries = retriever.retrieveAllDiffEntriesOfRepo();
 
 		AbstractDiffExporter exporter = new JsonDiffEntriesOfARepoExporter();
-		exporter.exportAllDiffEntriesToFile(allDiffEntries, new File("./bitcoin/commit"));
+		exporter.exportAllDiffEntriesToFile(allDiffEntries, new File("./log/bitcoinabc"));
+
+		// Bitcoin
+		retriever = new DiffEntriesOfARepoRetriever();
+		retriever.setRepositoryFolder(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
+		retriever.setBranchName(CommitRetriever.MASTER);
+		allDiffEntries = retriever.retrieveAllDiffEntriesOfRepo();
+
+		exporter = new JsonDiffEntriesOfARepoExporter();
+		exporter.exportAllDiffEntriesToFile(allDiffEntries, new File("./log/bitcoin"));
 	}
 
 	public void exportAllDiffEntriesToFile(List<MyDiffEntries> allDiffEntriesOfARepo, File outputFolder) {
@@ -53,28 +67,38 @@ public class JsonDiffEntriesOfARepoExporter extends AbstractDiffExporter {
 			count++;
 			DiffEntriesOfACommit commit = new DiffEntriesOfACommit();
 
+			// current commit
 			CommitJgit newCommit = diffEntriesOfACommit.getNewCommit();
 			commit.setCurrentCommit(newCommit.getCommit().getId().getName());
-			commit.setMessageOfCurrentCommit(newCommit.getCommit().getShortMessage());
+			commit.setMessage(newCommit.getCommit().getShortMessage());
+			commit.setNumOfChangedFile(diffEntriesOfACommit.size());
 
-			CommitJgit oldCommit = diffEntriesOfACommit.getOldCommit();
-			commit.setComparedCommit(oldCommit.getCommit().getId().getName());
-			commit.setMessageOfComparedCommit(oldCommit.getCommit().getShortMessage());
+			PersonIdent authorIdent = newCommit.getCommit().getAuthorIdent();
+			Date authorDate = authorIdent.getWhen();
+			commit.setDate(authorDate);
 
 			for (MyDiffEntry diffEntryOfACommit : diffEntriesOfACommit) {
-				ChangedFileOfACommit changedFile = new ChangedFileOfACommit();
-				changedFile.setNameFile(diffEntryOfACommit.getChangedFile().getNameFile());
 
-				// Add identifiers
-				String changedCodeSnippet = Utils
-						.convertToString(diffEntryOfACommit.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
-				AbstractIdentifierRetriever identifierAnalyzer = new RegularIdentifierRetriever();
-				identifierAnalyzer.setCodeSnippet(changedCodeSnippet);
-				changedFile.setIdentifiers(identifierAnalyzer.findIdentifiers());
+				String fileName = diffEntryOfACommit.getChangedFile().getNameFile();
 
-				commit.getChangedFiles().add(changedFile);
+				if (isCOrCppLanguage(fileName)) {
+					ChangedFileOfACommit changedFile = new ChangedFileOfACommit();
+					changedFile.setNameFileHash(fileName.hashCode());
+					changedFile.setNameFileInString(diffEntryOfACommit.getChangedFile().getNameFile());
+
+					// Add identifiers
+					String changedCodeSnippet = Utils.convertToString(
+							diffEntryOfACommit.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
+					AbstractIdentifierRetriever identifierAnalyzer = new RegularIdentifierRetriever();
+					identifierAnalyzer.setCodeSnippet(changedCodeSnippet);
+					List<String> identifiers = identifierAnalyzer.findIdentifiers();
+					int[] hashIdentifiers = hash(identifiers);
+					Arrays.sort(hashIdentifiers);
+					changedFile.setIdentifiersHash(hashIdentifiers);
+
+					commit.getChangedFiles().add(changedFile);
+				}
 			}
-
 			output.getCommits().add(commit);
 
 			/***
@@ -101,4 +125,16 @@ public class JsonDiffEntriesOfARepoExporter extends AbstractDiffExporter {
 		}
 	}
 
+	private boolean isCOrCppLanguage(String name) {
+		return name.endsWith(".c") || name.endsWith(".cpp") || name.endsWith(".cc") || name.endsWith(".h")
+				|| name.endsWith(".hpp");
+	}
+
+	private int[] hash(List<String> list) {
+		int[] output = new int[list.size()];
+
+		for (int i = 0; i < list.size(); i++)
+			output[i] = list.get(i).hashCode();
+		return output;
+	}
 }

@@ -14,7 +14,7 @@ public class JsonDiffEntriesOfARepoReader {
 
 	public static void main(String[] args) {
 		JsonDiffEntriesOfARepoReader reader = new JsonDiffEntriesOfARepoReader();
-		reader.setDiffEntriesFolder(new File("./bitcoin/commit"));
+		reader.setDiffEntriesFolder(new File("./log/bitcoin"));
 		DiffEntriesOfARepo diffEntriesOfARepo = reader.readData();
 		System.out.println(diffEntriesOfARepo.getBranch());
 		System.out.println(diffEntriesOfARepo.getCommits().size());

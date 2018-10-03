@@ -1,15 +1,14 @@
 package com.jgit.datalog.object;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DiffEntriesOfACommit {
 	private String currentCommit;
-	private String messageOfCurrentCommit;
-
-	private String comparedCommit;
-	private String messageOfComparedCommit;
-
+	private int numOfChangedFile = 0;
+	private Date date;
+	private String message;
 	private List<ChangedFileOfACommit> changedFiles = new ArrayList<ChangedFileOfACommit>();
 
 	public String getCurrentCommit() {
@@ -20,12 +19,12 @@ public class DiffEntriesOfACommit {
 		this.currentCommit = currentCommit;
 	}
 
-	public String getMessageOfCurrentCommit() {
-		return messageOfCurrentCommit;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setMessageOfCurrentCommit(String messageOfCurrentCommit) {
-		this.messageOfCurrentCommit = messageOfCurrentCommit;
+	public void setMessage(String messageOfCurrentCommit) {
+		this.message = messageOfCurrentCommit;
 	}
 
 	public List<ChangedFileOfACommit> getChangedFiles() {
@@ -36,19 +35,19 @@ public class DiffEntriesOfACommit {
 		this.changedFiles = changedFiles;
 	}
 
-	public String getComparedCommit() {
-		return comparedCommit;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setComparedCommit(String comparedCommit) {
-		this.comparedCommit = comparedCommit;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public String getMessageOfComparedCommit() {
-		return messageOfComparedCommit;
+	public void setNumOfChangedFile(int numOfChangedFile) {
+		this.numOfChangedFile = numOfChangedFile;
 	}
 
-	public void setMessageOfComparedCommit(String messageOfComparedCommit) {
-		this.messageOfComparedCommit = messageOfComparedCommit;
+	public int getNumOfChangedFile() {
+		return numOfChangedFile;
 	}
 }

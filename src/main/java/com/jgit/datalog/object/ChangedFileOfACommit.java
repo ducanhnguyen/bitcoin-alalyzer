@@ -1,25 +1,31 @@
 package com.jgit.datalog.object;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ChangedFileOfACommit {
-	private String nameFile;
-	private List<String> identifiers = new ArrayList<String>();
+	private int nameFileHash;
+	private int[] identifiersHash = null; // present in an increase order
+	private String nameFileInString = "";
 
-	public String getNameFile() {
-		return nameFile;
+	public int getNameFileHash() {
+		return nameFileHash;
 	}
 
-	public void setNameFile(String nameFile) {
-		this.nameFile = nameFile;
+	public void setNameFileHash(int nameFile) {
+		this.nameFileHash = nameFile;
 	}
 
-	public List<String> getIdentifiers() {
-		return identifiers;
+	public int[] getIdentifiersHash() {
+		return identifiersHash;
 	}
 
-	public void setIdentifiers(List<String> identifiers) {
-		this.identifiers = identifiers;
+	public void setIdentifiersHash(int[] identifiers) {
+		this.identifiersHash = identifiers;
+	}
+
+	public String getNameFileInString() {
+		return nameFileInString;
+	}
+
+	public void setNameFileInString(String nameFileInString) {
+		this.nameFileInString = nameFileInString;
 	}
 }
