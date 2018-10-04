@@ -1,9 +1,14 @@
 package com.jgit.comparison;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jgit.comparison.object.AllSimilarCommitPairs;
 import com.jgit.comparison.object.SimilarChangedFilePair;
 import com.jgit.comparison.object.SimilarCommitPair;
 import com.jgit.datalog.JsonDiffEntriesOfARepoReader;
@@ -34,114 +39,109 @@ public class IndirectCommitsComparator {
 		IndirectCommitsComparator comparator = new IndirectCommitsComparator();
 		comparator.setCommitLogOfRepoA(commitLogOfRepoA);
 		comparator.setCommitLogOfRepoB(commitLogOfRepoB);
-		comparator.setOutputFile(new File("./similarity.txt"));
-		List<SimilarCommitPair> pairs = comparator.compare();
+		comparator.setOutputFile(new File("./similarity.json"));
+		AllSimilarCommitPairs pairs = comparator.compare();
 	}
 
 	public IndirectCommitsComparator() {
 	}
 
-	public List<SimilarCommitPair> compare() {
-		List<SimilarCommitPair> pairs = new ArrayList<SimilarCommitPair>();
+	public AllSimilarCommitPairs compare() {
+		AllSimilarCommitPairs commitPairs = new AllSimilarCommitPairs();
 
-		if (commitLogOfRepoA != null && commitLogOfRepoB != null) {
-			for (DiffEntriesOfACommit commitA : commitLogOfRepoA.getCommits()) {
-
+		if (commitLogOfRepoA != null && commitLogOfRepoB != null)
+			for (DiffEntriesOfACommit commitA : commitLogOfRepoA.getCommits())
 				for (DiffEntriesOfACommit commitB : commitLogOfRepoB.getCommits()) {
 
-					// found the start of comparison
-					boolean foundAnIdenticalNamesPair = false;
-					int startA = 0;
-					int startB = 0;
-					while (startA < commitA.getChangedFiles().size() && startB < commitB.getChangedFiles().size()) {
-						int hashA = commitA.getChangedFiles().get(startA).getNameFileHash();
-						int hashB = commitB.getChangedFiles().get(startB).getNameFileHash();
-						if (hashA < hashB) {
-							startA++;
-							continue;
-						} else if (hashA > hashB) {
-							startB++;
-							continue;
-						} else {
-							foundAnIdenticalNamesPair = true;
-							break;
-						}
-					}
-					// compare
-					double commitsSimilarity = 0.0f;
-					double sumOfSimilarity = 0.0f;
-
-					int maximumSize = commitA.getChangedFiles().size() > commitB.getChangedFiles().size()
-							? commitB.getChangedFiles().size()
-							: commitA.getChangedFiles().size();
-
 					final List<SimilarChangedFilePair> changedFilePairs = new ArrayList<SimilarChangedFilePair>();
+					boolean[] visitedFileA = new boolean[commitA.getChangedFiles().size()]; // visited element = true
+					for (boolean item : visitedFileA)
+						item = false;
 
-					int numOfDuplicatedFiles = 0;
+					boolean[] visitedFileB = new boolean[commitB.getChangedFiles().size()];// visited element = true
+					for (boolean item : visitedFileB)
+						item = false;
 
-					if (foundAnIdenticalNamesPair) {
-						for (int i = startA; i < maximumSize; i++) {
-							ChangedFileOfACommit changedFileA = commitA.getChangedFiles().get(i);
-							ChangedFileOfACommit changedFileB = commitB.getChangedFiles().get(i);
+					for (int startA = 0; startA < commitA.getChangedFiles().size(); startA++)
+						for (int startB = 0; startB < commitB.getChangedFiles().size(); startB++)
+							if (!visitedFileA[startA] && !visitedFileB[startB]) {
 
-							// Only comparing files having the same name
-							if (!shouldBeIgnored(changedFileA.getNameFileInString())) {
-								if (changedFileA.getNameFileHash() == changedFileB.getNameFileHash()) {
-									int sizeOfIntersection = intersection(changedFileA.getIdentifiersHash(),
+								ChangedFileOfACommit changedFileA = commitA.getChangedFiles().get(startA);
+								int hashA = changedFileA.getNameFileHash();
+
+								ChangedFileOfACommit changedFileB = commitB.getChangedFiles().get(startB);
+								int hashB = changedFileB.getNameFileHash();
+
+								// Only comparing files having the same name
+								if (hashA == hashB && !shouldBeIgnored(changedFileA.getNameFileInString())) {
+
+									int sizeOfIntersectionSet = intersection(changedFileA.getIdentifiersHash(),
 											changedFileB.getIdentifiersHash());
-									int union = changedFileA.getIdentifiersHash().length
-											+ changedFileB.getIdentifiersHash().length - sizeOfIntersection;
-									float similarityOfTwoChangedFiles = sizeOfIntersection * 1.0f / union;
+									int sizeOfUnionSet = changedFileA.getIdentifiersHash().length
+											+ changedFileB.getIdentifiersHash().length - sizeOfIntersectionSet;
+									float similarityOfTwoChangedFiles = sizeOfIntersectionSet * 1.0f / sizeOfUnionSet;
 
 									if (similarityOfTwoChangedFiles >= THRESHOLD_BETWEEN_TWO_CHANGED_FILES) {
-										sumOfSimilarity += similarityOfTwoChangedFiles;
-										numOfDuplicatedFiles++;
+										visitedFileA[startA] = true;
+										visitedFileB[startB] = true;
 
 										//
 										SimilarChangedFilePair changedFilePair = new SimilarChangedFilePair();
 										changedFilePair.setNameOfChangedFile(changedFileA.getNameFileInString());
 										changedFilePair.setIdentifiersSimilarity(similarityOfTwoChangedFiles);
+										changedFilePair.setSizeOfIntersectionSet(sizeOfIntersectionSet);
+										changedFilePair.setSizeOfUnionSet(sizeOfUnionSet);
 										changedFilePairs.add(changedFilePair);
-									}
 
-								} else {
-									// different names, we break!
-									commitsSimilarity = sumOfSimilarity * 1.0f / numOfDuplicatedFiles;
-									break;
+										break;
+									}
 								}
 							}
-						}
 
-						if (commitsSimilarity >= THRESHOLD_BETWEEN_TWO_COMMITS) {
-							SimilarCommitPair pair = new SimilarCommitPair();
+					// Calculate commit similarity
+					double sumOfSimilarity = 0.0f;
+					for (SimilarChangedFilePair changedFilePair : changedFilePairs)
+						sumOfSimilarity += changedFilePair.getIdentifiersSimilarity();
 
-							pair.setCommitA(commitA.getCurrentCommit());
-							pair.setMessageOfCommitA(commitA.getMessage());
-							pair.setDateOfCommitA(commitA.getDate());
-							pair.setNumOfChangedFileInA(commitA.getChangedFiles().size());
+					double commitsSimilarity = 0.0f;
+					commitsSimilarity = sumOfSimilarity * 1.0f / changedFilePairs.size();
 
-							pair.setCommitB(commitB.getCurrentCommit());
-							pair.setMessageOfCommitB(commitB.getMessage());
-							pair.setDateOfCommitB(commitB.getDate());
-							pair.setNumOfChangedFileInB(commitB.getChangedFiles().size());
+					if (commitsSimilarity >= THRESHOLD_BETWEEN_TWO_COMMITS) {
+						SimilarCommitPair commitPair = new SimilarCommitPair();
 
-							pair.setCommitSimilarity(commitsSimilarity);
-							pair.setChangedFile(changedFilePairs);
-							pairs.add(pair);
+						commitPair.setCommitA(commitA.getCurrentCommit());
+						commitPair.setMessageOfCommitA(commitA.getMessage());
+						commitPair.setDateOfCommitA(commitA.getDate());
+						commitPair.setNumOfChangedFileInA(commitA.getChangedFiles().size());
 
-							// Export to file
-							String output = pair.toString();
-							System.out.println(output);
-							String oldContent = Utils.convertToString(Utils.readFileContent(outputFile));
-							output = output + oldContent;
-							Utils.writeToFile(outputFile, output);
-						}
+						commitPair.setCommitB(commitB.getCurrentCommit());
+						commitPair.setMessageOfCommitB(commitB.getMessage());
+						commitPair.setDateOfCommitB(commitB.getDate());
+						commitPair.setNumOfChangedFileInB(commitB.getChangedFiles().size());
+
+						commitPair.setCommitSimilarity(commitsSimilarity);
+						commitPair.setChangedFile(changedFilePairs);
+						commitPairs.add(commitPair);
+
+						System.out.println("Size of commit pairs = " + commitPairs.size());
 					}
 				}
-			}
-		}
 
-		return pairs;
+		// Append the new commit pair to file
+		Utils.appendToFile(outputFile, commitPairs.toString());
+		try {
+			// Convert object to JSON string and save into a file directly
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.writeValue(outputFile, commitPairs);
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return commitPairs;
+
 	}
 
 	private boolean shouldBeIgnored(String name) {
@@ -195,6 +195,7 @@ public class IndirectCommitsComparator {
 	public void setOutputFile(File outputFile) {
 		if (outputFile.exists())
 			outputFile.delete();
+
 		this.outputFile = outputFile;
 	}
 
@@ -206,7 +207,7 @@ public class IndirectCommitsComparator {
 	public static final String[] TESTING_FOLDER_SIGNALS = new String[] { "src/test/" };
 
 	// We ignore some files
-	public static final String[] IGNORED_FILES = new String[] { "src/init.cpp" };
+	public static final String[] IGNORED_FILES = new String[] { /*"src/init.cpp" */};
 
 	public static final double THRESHOLD_BETWEEN_TWO_COMMITS = 0.7;
 	public static final double THRESHOLD_BETWEEN_TWO_CHANGED_FILES = 0.7;

@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class SimilarCommitPair {
 	private String commitA = ""; // a commit in repo A
+	@JsonIgnore
 	private String messageOfCommitA = "";
 	private Date DateOfCommitA = null;
 	private int numOfChangedFileInA = 0;
 
 	private String commitB = "";// a commit in a different repo
+	@JsonIgnore
 	private String messageOfCommitB = "";
 	private Date DateOfCommitB = null;
 	private int numOfChangedFileInB = 0;

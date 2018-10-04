@@ -54,8 +54,6 @@ public class JsonDiffEntriesOfARepoExporter extends AbstractDiffExporter {
 	}
 
 	public void exportAllDiffEntriesToFile(List<MyDiffEntries> allDiffEntriesOfARepo, File outputFolder) {
-		ObjectMapper mapper = new ObjectMapper();
-
 		DiffEntriesOfARepo output = new DiffEntriesOfARepo();
 		output.setBranch(allDiffEntriesOfARepo.get(0).getBranchName());
 		output.setRepository(allDiffEntriesOfARepo.get(0).getRepositoryFolder().getParentFile().getName());
@@ -110,6 +108,8 @@ public class JsonDiffEntriesOfARepoExporter extends AbstractDiffExporter {
 					File outputFile = new File(
 							outputFolder.getAbsolutePath() + File.separator + outputNameId + ".json");
 					System.out.println("Exporting to file " + outputFile.getAbsolutePath());
+					
+					ObjectMapper mapper = new ObjectMapper();
 					mapper.writeValue(outputFile, output);
 				} catch (JsonGenerationException e) {
 					e.printStackTrace();
