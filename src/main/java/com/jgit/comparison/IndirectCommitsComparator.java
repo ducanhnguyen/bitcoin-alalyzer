@@ -49,6 +49,25 @@ public class IndirectCommitsComparator {
 
 				for (DiffEntriesOfACommit commitB : commitLogOfRepoB.getCommits()) {
 
+					// found the start of comparison
+					boolean foundAnIdenticalNamesPair = false;
+					int startA = 0;
+					int startB = 0;
+					while (startA < commitA.getChangedFiles().size() && startB < commitB.getChangedFiles().size()) {
+						int hashA = commitA.getChangedFiles().get(startA).getNameFileHash();
+						int hashB = commitB.getChangedFiles().get(startB).getNameFileHash();
+						if (hashA < hashB) {
+							startA++;
+							continue;
+						} else if (hashA > hashB) {
+							startB++;
+							continue;
+						} else {
+							foundAnIdenticalNamesPair = true;
+							break;
+						}
+					}
+					// compare
 					double commitsSimilarity = 0.0f;
 					double sumOfSimilarity = 0.0f;
 
@@ -60,65 +79,63 @@ public class IndirectCommitsComparator {
 
 					int numOfDuplicatedFiles = 0;
 
-					for (int i = 0; i < maximumSize; i++) {
-						ChangedFileOfACommit changedFileA = commitA.getChangedFiles().get(i);
-						ChangedFileOfACommit changedFileB = commitB.getChangedFiles().get(i);
+					if (foundAnIdenticalNamesPair) {
+						for (int i = startA; i < maximumSize; i++) {
+							ChangedFileOfACommit changedFileA = commitA.getChangedFiles().get(i);
+							ChangedFileOfACommit changedFileB = commitB.getChangedFiles().get(i);
 
-						// Only comparing files having the same name
-						if (!shouldBeIgnored(changedFileA.getNameFileInString())) {
-							if (changedFileA.getNameFileHash() == changedFileB.getNameFileHash()) {
-								int sizeOfIntersection = intersection(changedFileA.getIdentifiersHash(),
-										changedFileB.getIdentifiersHash());
-								int union = changedFileA.getIdentifiersHash().length
-										+ changedFileB.getIdentifiersHash().length - sizeOfIntersection;
-								float similarityOfTwoChangedFiles = sizeOfIntersection * 1.0f / union;
+							// Only comparing files having the same name
+							if (!shouldBeIgnored(changedFileA.getNameFileInString())) {
+								if (changedFileA.getNameFileHash() == changedFileB.getNameFileHash()) {
+									int sizeOfIntersection = intersection(changedFileA.getIdentifiersHash(),
+											changedFileB.getIdentifiersHash());
+									int union = changedFileA.getIdentifiersHash().length
+											+ changedFileB.getIdentifiersHash().length - sizeOfIntersection;
+									float similarityOfTwoChangedFiles = sizeOfIntersection * 1.0f / union;
 
-								if (similarityOfTwoChangedFiles >= THRESHOLD_BETWEEN_TWO_CHANGED_FILES) {
-									sumOfSimilarity += similarityOfTwoChangedFiles;
-									numOfDuplicatedFiles++;
+									if (similarityOfTwoChangedFiles >= THRESHOLD_BETWEEN_TWO_CHANGED_FILES) {
+										sumOfSimilarity += similarityOfTwoChangedFiles;
+										numOfDuplicatedFiles++;
 
-									//
-									SimilarChangedFilePair changedFilePair = new SimilarChangedFilePair();
-									changedFilePair.setNameOfChangedFile(changedFileA.getNameFileInString());
-									changedFilePair.setIdentifiersSimilarity(similarityOfTwoChangedFiles);
-									changedFilePairs.add(changedFilePair);
-								}
+										//
+										SimilarChangedFilePair changedFilePair = new SimilarChangedFilePair();
+										changedFilePair.setNameOfChangedFile(changedFileA.getNameFileInString());
+										changedFilePair.setIdentifiersSimilarity(similarityOfTwoChangedFiles);
+										changedFilePairs.add(changedFilePair);
+									}
 
-							} else {
-								if (i == 0)
-									break;
-								else {
+								} else {
 									// different names, we break!
 									commitsSimilarity = sumOfSimilarity * 1.0f / numOfDuplicatedFiles;
 									break;
 								}
 							}
 						}
-					}
 
-					if (commitsSimilarity >= THRESHOLD_BETWEEN_TWO_COMMITS) {
-						SimilarCommitPair pair = new SimilarCommitPair();
+						if (commitsSimilarity >= THRESHOLD_BETWEEN_TWO_COMMITS) {
+							SimilarCommitPair pair = new SimilarCommitPair();
 
-						pair.setCommitA(commitA.getCurrentCommit());
-						pair.setMessageOfCommitA(commitA.getMessage());
-						pair.setDateOfCommitA(commitA.getDate());
-						pair.setNumOfChangedFileInA(commitA.getChangedFiles().size());
+							pair.setCommitA(commitA.getCurrentCommit());
+							pair.setMessageOfCommitA(commitA.getMessage());
+							pair.setDateOfCommitA(commitA.getDate());
+							pair.setNumOfChangedFileInA(commitA.getChangedFiles().size());
 
-						pair.setCommitB(commitB.getCurrentCommit());
-						pair.setMessageOfCommitB(commitB.getMessage());
-						pair.setDateOfCommitB(commitB.getDate());
-						pair.setNumOfChangedFileInB(commitB.getChangedFiles().size());
+							pair.setCommitB(commitB.getCurrentCommit());
+							pair.setMessageOfCommitB(commitB.getMessage());
+							pair.setDateOfCommitB(commitB.getDate());
+							pair.setNumOfChangedFileInB(commitB.getChangedFiles().size());
 
-						pair.setCommitSimilarity(commitsSimilarity);
-						pair.setChangedFile(changedFilePairs);
-						pairs.add(pair);
+							pair.setCommitSimilarity(commitsSimilarity);
+							pair.setChangedFile(changedFilePairs);
+							pairs.add(pair);
 
-						// Export to file
-						String output = pair.toString();
-						System.out.println(output);
-						String oldContent = Utils.convertToString(Utils.readFileContent(outputFile));
-						output = output + oldContent;
-						Utils.writeToFile(outputFile, output);
+							// Export to file
+							String output = pair.toString();
+							System.out.println(output);
+							String oldContent = Utils.convertToString(Utils.readFileContent(outputFile));
+							output = output + oldContent;
+							Utils.writeToFile(outputFile, output);
+						}
 					}
 				}
 			}

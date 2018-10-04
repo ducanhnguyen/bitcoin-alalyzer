@@ -143,6 +143,13 @@ similar files:
 , + src/qt/signverifymessagedialog.cpp;	similarity: 1.0
 ]
 -------------------------
+commit A: aa624b61c928295c27ffbb4d27be582f5aa31b56	(17 changed files, Fri Sep 29 10:11:01 CAT 2017)
+commit B: 6b6aaa1698838278a547f16a15e635bd58ec867d	(26 changed files, Mon Apr 16 14:56:45 CAT 2012)
+commit similarity: 1.0
+similar files:
+[+ src/base58.h;	similarity: 1.0
+]
+-------------------------
 commit A: 794298063de40a6837736f9d928d28c2d6712a73	(3 changed files, Thu Feb 18 01:55:43 CAT 2010)
 commit B: fc73ad644f0b87b91f49b7f6f6b2348f78bdbbf4	(3 changed files, Mon Dec 13 18:26:14 CAT 2010)
 commit similarity: 1.0
@@ -166,6 +173,48 @@ similar files:
 -------------------------
 commit A: c6ab3cf6d9cf5f5ade3b8fc48590e1bc4794cb43	(3 changed files, Thu Feb 18 01:55:43 CAT 2010)
 commit B: bc530fe89fa2be0bbb991c4f65b187fc1dc00792	(3 changed files, Mon Dec 13 21:28:59 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: 30158c77e99a099cbdd556bacbac18b431c3870c	(7 changed files, Wed Feb 24 00:01:39 CAT 2010)
+commit B: cc8005b4e735115b63a9de74ac6a644cfb30565f	(5 changed files, Mon Oct 11 21:15:09 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: cb420a1dfc23d3c11c5281ed8f7ae003c2f61594	(7 changed files, Wed Feb 24 00:01:39 CAT 2010)
+commit B: cc8005b4e735115b63a9de74ac6a644cfb30565f	(5 changed files, Mon Oct 11 21:15:09 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: a280b4e661560943265cb443745b0b08374985a2	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit B: 15399da9fe29336f119121340146d78973b601a5	(6 changed files, Mon Aug 16 19:05:50 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: a280b4e661560943265cb443745b0b08374985a2	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit B: bb3fd02930ba5cb8e8a3a92ede9612955edeee05	(6 changed files, Mon Aug 16 22:53:49 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: d882773789ea3894de7163f7bb880c5b23072882	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit B: 15399da9fe29336f119121340146d78973b601a5	(6 changed files, Mon Aug 16 19:05:50 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: d882773789ea3894de7163f7bb880c5b23072882	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit B: bb3fd02930ba5cb8e8a3a92ede9612955edeee05	(6 changed files, Mon Aug 16 22:53:49 CAT 2010)
 commit similarity: 1.0
 similar files:
 [+ serialize.h;	similarity: 1.0
@@ -176,6 +225,48 @@ commit B: 0a61b0df1224a5470bcddab302bc199ca5a9e356	(54 changed files, Sun Aug 29
 commit similarity: 1.0
 similar files:
 [+ base58.h;	similarity: 1.0
+]
+-------------------------
+commit A: e8bff10f07b80d820545661cee9337d8664a64cb	(5 changed files, Sun Jul 18 22:47:29 CAT 2010)
+commit B: efae3da41d821b12d1481de8b8e0b2e105d36ae3	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: e8bff10f07b80d820545661cee9337d8664a64cb	(5 changed files, Sun Jul 18 22:47:29 CAT 2010)
+commit B: fe37c350185c946cb735d1415c124657e7839558	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: e8bff10f07b80d820545661cee9337d8664a64cb	(5 changed files, Sun Jul 18 22:47:29 CAT 2010)
+commit B: a43a7dfa58d7b3292c998e25c994cd5fef82a95c	(5 changed files, Thu Sep 16 04:31:09 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: e96cd730d188dde8915061ad4f19dc716dd97097	(5 changed files, Mon Jul 19 03:18:46 CAT 2010)
+commit B: efae3da41d821b12d1481de8b8e0b2e105d36ae3	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: e96cd730d188dde8915061ad4f19dc716dd97097	(5 changed files, Mon Jul 19 03:18:46 CAT 2010)
+commit B: fe37c350185c946cb735d1415c124657e7839558	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: e96cd730d188dde8915061ad4f19dc716dd97097	(5 changed files, Mon Jul 19 03:18:46 CAT 2010)
+commit B: a43a7dfa58d7b3292c998e25c994cd5fef82a95c	(5 changed files, Thu Sep 16 04:31:09 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
 ]
 -------------------------
 commit A: 3b7cd5d89a226426df9c723d1f9ddfe08b7d1def	(12 changed files, Sun Jul 25 18:45:21 CAT 2010)
@@ -217,6 +308,34 @@ similar files:
 -------------------------
 commit A: b34e8c3c369331189c01bcbb7682af9d7daa42cd	(7 changed files, Wed Aug 04 03:51:34 CAT 2010)
 commit B: 94073ecf7b1e605628872176e14a25409e4857c2	(9 changed files, Tue Nov 23 22:01:34 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: 15399da9fe29336f119121340146d78973b601a5	(6 changed files, Mon Aug 16 19:05:50 CAT 2010)
+commit B: a280b4e661560943265cb443745b0b08374985a2	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: 15399da9fe29336f119121340146d78973b601a5	(6 changed files, Mon Aug 16 19:05:50 CAT 2010)
+commit B: d882773789ea3894de7163f7bb880c5b23072882	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: bb3fd02930ba5cb8e8a3a92ede9612955edeee05	(6 changed files, Mon Aug 16 22:53:49 CAT 2010)
+commit B: a280b4e661560943265cb443745b0b08374985a2	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: bb3fd02930ba5cb8e8a3a92ede9612955edeee05	(6 changed files, Mon Aug 16 22:53:49 CAT 2010)
+commit B: d882773789ea3894de7163f7bb880c5b23072882	(9 changed files, Thu Jul 08 18:14:56 CAT 2010)
 commit similarity: 1.0
 similar files:
 [+ serialize.h;	similarity: 1.0
@@ -295,6 +414,62 @@ similar files:
 , + key.h;	similarity: 1.0
 , + noui.h;	similarity: 1.0
 , + rpc.h;	similarity: 1.0
+]
+-------------------------
+commit A: efae3da41d821b12d1481de8b8e0b2e105d36ae3	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit B: e8bff10f07b80d820545661cee9337d8664a64cb	(5 changed files, Sun Jul 18 22:47:29 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: efae3da41d821b12d1481de8b8e0b2e105d36ae3	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit B: e96cd730d188dde8915061ad4f19dc716dd97097	(5 changed files, Mon Jul 19 03:18:46 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: fe37c350185c946cb735d1415c124657e7839558	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit B: e8bff10f07b80d820545661cee9337d8664a64cb	(5 changed files, Sun Jul 18 22:47:29 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: fe37c350185c946cb735d1415c124657e7839558	(5 changed files, Thu Sep 16 00:10:13 CAT 2010)
+commit B: e96cd730d188dde8915061ad4f19dc716dd97097	(5 changed files, Mon Jul 19 03:18:46 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: a43a7dfa58d7b3292c998e25c994cd5fef82a95c	(5 changed files, Thu Sep 16 04:31:09 CAT 2010)
+commit B: e8bff10f07b80d820545661cee9337d8664a64cb	(5 changed files, Sun Jul 18 22:47:29 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: a43a7dfa58d7b3292c998e25c994cd5fef82a95c	(5 changed files, Thu Sep 16 04:31:09 CAT 2010)
+commit B: e96cd730d188dde8915061ad4f19dc716dd97097	(5 changed files, Mon Jul 19 03:18:46 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: cc8005b4e735115b63a9de74ac6a644cfb30565f	(5 changed files, Mon Oct 11 21:15:09 CAT 2010)
+commit B: 30158c77e99a099cbdd556bacbac18b431c3870c	(7 changed files, Wed Feb 24 00:01:39 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
+]
+-------------------------
+commit A: cc8005b4e735115b63a9de74ac6a644cfb30565f	(5 changed files, Mon Oct 11 21:15:09 CAT 2010)
+commit B: cb420a1dfc23d3c11c5281ed8f7ae003c2f61594	(7 changed files, Wed Feb 24 00:01:39 CAT 2010)
+commit similarity: 1.0
+similar files:
+[+ serialize.h;	similarity: 1.0
 ]
 -------------------------
 commit A: 683bcb9154422011ef01e8c5677bad2c4b323436	(3 changed files, Fri Nov 19 22:22:46 CAT 2010)
@@ -1217,6 +1392,20 @@ similar files:
 [+ src/qt/bitcoinstrings.cpp;	similarity: 1.0
 ]
 -------------------------
+commit A: b0a7e05a45a925d78efd00ecca6dce9b7a9530f9	(24 changed files, Wed Apr 04 14:03:07 CAT 2012)
+commit B: b4347f60352a7134f95a0f35e74607a167090516	(11 changed files, Tue Nov 04 15:34:04 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/crypter.h;	similarity: 1.0
+]
+-------------------------
+commit A: b0a7e05a45a925d78efd00ecca6dce9b7a9530f9	(24 changed files, Wed Apr 04 14:03:07 CAT 2012)
+commit B: be32b5212b6ab4460080ec5ff55e2bf882259e5e	(11 changed files, Tue Nov 04 15:40:29 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/crypter.h;	similarity: 1.0
+]
+-------------------------
 commit A: 8b09cd3a4db2d712e91826d44a0e777478b450c6	(4 changed files, Fri Apr 13 02:07:49 CAT 2012)
 commit B: 865a0c1674dd13563498608dfff27fa6da7b8357	(6 changed files, Tue Apr 17 17:51:17 CAT 2012)
 commit similarity: 1.0
@@ -1748,11 +1937,39 @@ similar files:
 , + src/db.h;	similarity: 1.0
 ]
 -------------------------
+commit A: fb1da62318f5a7f6e3ec31cdc02178a5445870e4	(16 changed files, Mon Jul 01 17:36:32 CAT 2013)
+commit B: aca47d2a24e39e6a05d85055ce3c6cbcabd8d50b	(8 changed files, Fri May 09 18:23:34 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
+commit A: fb1da62318f5a7f6e3ec31cdc02178a5445870e4	(16 changed files, Mon Jul 01 17:36:32 CAT 2013)
+commit B: 029f4904d17cd4eb5df18f965d05c9a0113794b1	(8 changed files, Mon May 12 11:29:54 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
 commit A: 2ecb7555a9df1e843fd25f588819e4ca1d94b266	(5 changed files, Tue Jul 23 03:51:29 CAT 2013)
 commit B: 125bdead3e9be9a6ce23129409612a4d8501980b	(16 changed files, Tue Oct 22 10:20:02 CAT 2013)
 commit similarity: 1.0
 similar files:
 [+ src/bitcoinrpc.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 83a3597071def757731544f8f1adf89a9aeee219	(16 changed files, Sun Jul 28 12:57:17 CAT 2013)
+commit B: aca47d2a24e39e6a05d85055ce3c6cbcabd8d50b	(8 changed files, Fri May 09 18:23:34 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
+commit A: 83a3597071def757731544f8f1adf89a9aeee219	(16 changed files, Sun Jul 28 12:57:17 CAT 2013)
+commit B: 029f4904d17cd4eb5df18f965d05c9a0113794b1	(8 changed files, Mon May 12 11:29:54 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
 ]
 -------------------------
 commit A: a2189fbaf65dd56c808dc7429b800e70d31178c3	(4 changed files, Sun Jun 23 18:04:44 CAT 2013)
@@ -2051,6 +2268,13 @@ similar files:
 ]
 -------------------------
 commit A: fb78cc23784b2fa478324aac35ca76c7cfe683a4	(13 changed files, Wed Nov 20 15:18:57 CAT 2013)
+commit B: ca37e0f33980a1fe96ac4ed08fd7d692a7a592a5	(46 changed files, Mon Jul 27 14:25:13 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/bitcoind.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: fb78cc23784b2fa478324aac35ca76c7cfe683a4	(13 changed files, Wed Nov 20 15:18:57 CAT 2013)
 commit B: 9623e934732ba0f0a5176cd3d993ebcda327b413	(25 changed files, Fri Sep 04 16:11:34 CAT 2015)
 commit similarity: 1.0
 similar files:
@@ -2076,6 +2300,13 @@ commit B: 6fa1f794f72d59e5221af1bea14b0a3c4e3bfd69	(5 changed files, Mon Jul 07 
 commit similarity: 1.0
 similar files:
 [+ src/bitcoin-cli.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 5f083afde18aac9ae0daeef4f04e33fa530f2126	(13 changed files, Wed Nov 27 15:15:33 CAT 2013)
+commit B: ca37e0f33980a1fe96ac4ed08fd7d692a7a592a5	(46 changed files, Mon Jul 27 14:25:13 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/bitcoind.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: 5f083afde18aac9ae0daeef4f04e33fa530f2126	(13 changed files, Wed Nov 27 15:15:33 CAT 2013)
@@ -2321,6 +2552,34 @@ similar files:
 [+ src/qt/transactiondesc.cpp;	similarity: 1.0
 ]
 -------------------------
+commit A: aca47d2a24e39e6a05d85055ce3c6cbcabd8d50b	(8 changed files, Fri May 09 18:23:34 CAT 2014)
+commit B: fb1da62318f5a7f6e3ec31cdc02178a5445870e4	(16 changed files, Mon Jul 01 17:36:32 CAT 2013)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
+commit A: aca47d2a24e39e6a05d85055ce3c6cbcabd8d50b	(8 changed files, Fri May 09 18:23:34 CAT 2014)
+commit B: 83a3597071def757731544f8f1adf89a9aeee219	(16 changed files, Sun Jul 28 12:57:17 CAT 2013)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
+commit A: 029f4904d17cd4eb5df18f965d05c9a0113794b1	(8 changed files, Mon May 12 11:29:54 CAT 2014)
+commit B: fb1da62318f5a7f6e3ec31cdc02178a5445870e4	(16 changed files, Mon Jul 01 17:36:32 CAT 2013)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
+commit A: 029f4904d17cd4eb5df18f965d05c9a0113794b1	(8 changed files, Mon May 12 11:29:54 CAT 2014)
+commit B: 83a3597071def757731544f8f1adf89a9aeee219	(16 changed files, Sun Jul 28 12:57:17 CAT 2013)
+commit similarity: 1.0
+similar files:
+[+ src/leveldb/include/leveldb/db.h;	similarity: 1.0
+]
+-------------------------
 commit A: 79d06dc6e07103b31b530f71b7187ea82c34266b	(7 changed files, Wed May 21 12:50:46 CAT 2014)
 commit B: 3b570559f8d39a5d4cffd01b8091c3133f7750dc	(7 changed files, Tue Oct 08 12:09:40 CAT 2013)
 commit similarity: 1.0
@@ -2521,6 +2780,20 @@ commit similarity: 1.0
 similar files:
 [+ src/bloom.cpp;	similarity: 1.0
 , + src/bloom.h;	similarity: 1.0
+]
+-------------------------
+commit A: f3967bcc50ea95510f12a86e90dec4c8c78fff3b	(16 changed files, Mon Jun 23 20:04:24 CAT 2014)
+commit B: 99f41b9cf7b8e039cea75500a905498a1f6969f3	(8 changed files, Tue Oct 21 00:13:47 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/main.h;	similarity: 1.0
+]
+-------------------------
+commit A: 36db6633c314b0f41aeee856f74a8d5d59334dbb	(16 changed files, Mon Jun 23 20:19:13 CAT 2014)
+commit B: 99f41b9cf7b8e039cea75500a905498a1f6969f3	(8 changed files, Tue Oct 21 00:13:47 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/main.h;	similarity: 1.0
 ]
 -------------------------
 commit A: 33fdd99288fd257d6b5a3797a0a68aff649a3a71	(5 changed files, Tue Jul 01 15:21:17 CAT 2014)
@@ -2789,10 +3062,38 @@ similar files:
 ]
 -------------------------
 commit A: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit B: c4408a6c8534a36711557028a69314024cbc1bbe	(8 changed files, Sat Aug 23 03:35:51 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
 commit B: eecd3c0fb0625b036f68a7830dda8edde21fcb90	(26 changed files, Mon Sep 08 20:34:01 CAT 2014)
 commit similarity: 1.0
 similar files:
 [+ src/base58.h;	similarity: 1.0
+]
+-------------------------
+commit A: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit B: 4a3587d8db9f651866ce70312ac9de11316b42c9	(23 changed files, Sat Oct 18 02:34:06 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit B: d22701118413b876579c020ea90ecf7a0d5671cb	(29 changed files, Tue Nov 18 23:03:02 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit B: a0417b8cc840ff6f49b4fb1f8ceef54f8e3d0df1	(29 changed files, Wed Dec 03 13:05:43 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: cbd22a50c4b3d2d0f133c5f8d34c9c7aca9c7f4f	(16 changed files, Wed Aug 20 17:37:40 CAT 2014)
@@ -2807,6 +3108,13 @@ commit B: eecd3c0fb0625b036f68a7830dda8edde21fcb90	(26 changed files, Mon Sep 08
 commit similarity: 1.0
 similar files:
 [+ src/base58.h;	similarity: 1.0
+]
+-------------------------
+commit A: c4408a6c8534a36711557028a69314024cbc1bbe	(8 changed files, Sat Aug 23 03:35:51 CAT 2014)
+commit B: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: c4408a6c8534a36711557028a69314024cbc1bbe	(8 changed files, Sat Aug 23 03:35:51 CAT 2014)
@@ -2877,6 +3185,13 @@ commit B: cbd22a50c4b3d2d0f133c5f8d34c9c7aca9c7f4f	(16 changed files, Wed Aug 20
 commit similarity: 1.0
 similar files:
 [+ src/base58.h;	similarity: 1.0
+]
+-------------------------
+commit A: eecd3c0fb0625b036f68a7830dda8edde21fcb90	(26 changed files, Mon Sep 08 20:34:01 CAT 2014)
+commit B: 723c7526368badda15df8ac1ffc047a0ab2e384a	(34 changed files, Tue Oct 28 14:22:34 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: 2c2cc5dac1102c1eb86c7dd825a893ab388abba1	(7 changed files, Mon Sep 08 12:25:52 CAT 2014)
@@ -3086,6 +3401,13 @@ similar files:
 ]
 -------------------------
 commit A: 4a3587d8db9f651866ce70312ac9de11316b42c9	(23 changed files, Sat Oct 18 02:34:06 CAT 2014)
+commit B: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 4a3587d8db9f651866ce70312ac9de11316b42c9	(23 changed files, Sat Oct 18 02:34:06 CAT 2014)
 commit B: c4408a6c8534a36711557028a69314024cbc1bbe	(8 changed files, Sat Aug 23 03:35:51 CAT 2014)
 commit similarity: 1.0
 similar files:
@@ -3127,6 +3449,27 @@ commit B: b5fa132329f0377d787a4a21c1686609c2bfaece	(6 changed files, Fri Dec 05 
 commit similarity: 1.0
 similar files:
 [+ src/bitcoin-tx.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 99f41b9cf7b8e039cea75500a905498a1f6969f3	(8 changed files, Tue Oct 21 00:13:47 CAT 2014)
+commit B: f3967bcc50ea95510f12a86e90dec4c8c78fff3b	(16 changed files, Mon Jun 23 20:04:24 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/main.h;	similarity: 1.0
+]
+-------------------------
+commit A: 99f41b9cf7b8e039cea75500a905498a1f6969f3	(8 changed files, Tue Oct 21 00:13:47 CAT 2014)
+commit B: 36db6633c314b0f41aeee856f74a8d5d59334dbb	(16 changed files, Mon Jun 23 20:19:13 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/main.h;	similarity: 1.0
+]
+-------------------------
+commit A: 723c7526368badda15df8ac1ffc047a0ab2e384a	(34 changed files, Tue Oct 28 14:22:34 CAT 2014)
+commit B: eecd3c0fb0625b036f68a7830dda8edde21fcb90	(26 changed files, Mon Sep 08 20:34:01 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: 723c7526368badda15df8ac1ffc047a0ab2e384a	(34 changed files, Tue Oct 28 14:22:34 CAT 2014)
@@ -3197,6 +3540,13 @@ similar files:
 ]
 -------------------------
 commit A: b4347f60352a7134f95a0f35e74607a167090516	(11 changed files, Tue Nov 04 15:34:04 CAT 2014)
+commit B: b0a7e05a45a925d78efd00ecca6dce9b7a9530f9	(24 changed files, Wed Apr 04 14:03:07 CAT 2012)
+commit similarity: 1.0
+similar files:
+[+ src/crypter.h;	similarity: 1.0
+]
+-------------------------
+commit A: b4347f60352a7134f95a0f35e74607a167090516	(11 changed files, Tue Nov 04 15:34:04 CAT 2014)
 commit B: d2e74c55bdd8cee6a0cca49aca0e2ab1a182c9b5	(14 changed files, Tue Oct 28 23:47:18 CAT 2014)
 commit similarity: 1.0
 similar files:
@@ -3208,6 +3558,13 @@ commit B: 73b82a30892224b17aa1b9db9b6de4eeeb903b7f	(16 changed files, Tue Nov 04
 commit similarity: 1.0
 similar files:
 [+ src/alert.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: be32b5212b6ab4460080ec5ff55e2bf882259e5e	(11 changed files, Tue Nov 04 15:40:29 CAT 2014)
+commit B: b0a7e05a45a925d78efd00ecca6dce9b7a9530f9	(24 changed files, Wed Apr 04 14:03:07 CAT 2012)
+commit similarity: 1.0
+similar files:
+[+ src/crypter.h;	similarity: 1.0
 ]
 -------------------------
 commit A: be32b5212b6ab4460080ec5ff55e2bf882259e5e	(11 changed files, Tue Nov 04 15:40:29 CAT 2014)
@@ -3265,6 +3622,13 @@ similar files:
 ]
 -------------------------
 commit A: d22701118413b876579c020ea90ecf7a0d5671cb	(29 changed files, Tue Nov 18 23:03:02 CAT 2014)
+commit B: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: d22701118413b876579c020ea90ecf7a0d5671cb	(29 changed files, Tue Nov 18 23:03:02 CAT 2014)
 commit B: c4408a6c8534a36711557028a69314024cbc1bbe	(8 changed files, Sat Aug 23 03:35:51 CAT 2014)
 commit similarity: 1.0
 similar files:
@@ -3298,6 +3662,13 @@ commit B: b5fa132329f0377d787a4a21c1686609c2bfaece	(6 changed files, Fri Dec 05 
 commit similarity: 1.0
 similar files:
 [+ src/bitcoin-tx.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: a0417b8cc840ff6f49b4fb1f8ceef54f8e3d0df1	(29 changed files, Wed Dec 03 13:05:43 CAT 2014)
+commit B: 86dbeea2cdd5749374c98afea3e4f5f49817f746	(22 changed files, Thu Aug 14 13:54:05 CAT 2014)
+commit similarity: 1.0
+similar files:
+[+ src/bloom.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: a0417b8cc840ff6f49b4fb1f8ceef54f8e3d0df1	(29 changed files, Wed Dec 03 13:05:43 CAT 2014)
@@ -3561,6 +3932,34 @@ similar files:
 , + src/chainparamsbase.h;	similarity: 1.0
 ]
 -------------------------
+commit A: 50c72f23ad5f7fcd13bf016f79cac6323c329caf	(36 changed files, Tue Feb 03 22:09:47 CAT 2015)
+commit B: a0eaff8a1d18ebba33cdea4cd1efaddeb55519e7	(23 changed files, Fri Jan 15 02:55:17 CAT 2016)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 50c72f23ad5f7fcd13bf016f79cac6323c329caf	(36 changed files, Tue Feb 03 22:09:47 CAT 2015)
+commit B: 62f2d769e45043c1f262ed45babb70fe237ad2bb	(23 changed files, Thu Jan 28 12:08:51 CAT 2016)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 05f17d4eaa9e74836d5736d50e456420949f2732	(36 changed files, Fri Mar 20 17:05:37 CAT 2015)
+commit B: a0eaff8a1d18ebba33cdea4cd1efaddeb55519e7	(23 changed files, Fri Jan 15 02:55:17 CAT 2016)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 05f17d4eaa9e74836d5736d50e456420949f2732	(36 changed files, Fri Mar 20 17:05:37 CAT 2015)
+commit B: 62f2d769e45043c1f262ed45babb70fe237ad2bb	(23 changed files, Thu Jan 28 12:08:51 CAT 2016)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
 commit A: 26c16d9de9874ad2f5fe28377b838a19a558639d	(3 changed files, Thu Feb 05 02:11:44 CAT 2015)
 commit B: 8d2fbfa49141172e1c63f5ab7b684a1f9e210571	(14 changed files, Tue Mar 24 19:06:54 CAT 2015)
 commit similarity: 1.0
@@ -3575,6 +3974,13 @@ commit similarity: 1.0
 similar files:
 [+ src/main.cpp;	similarity: 1.0
 , + src/main.h;	similarity: 1.0
+]
+-------------------------
+commit A: 5ff4065cc603ce16a59919e010c5faf8e3e2287d	(6 changed files, Wed Apr 01 11:54:12 CAT 2015)
+commit B: 531214fb100c14e62921085cd68cabe2b20ee0eb	(5 changed files, Fri Aug 19 21:38:04 CAT 2016)
+commit similarity: 1.0
+similar files:
+[+ src/qt/peertablemodel.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: 5ff4065cc603ce16a59919e010c5faf8e3e2287d	(6 changed files, Wed Apr 01 11:54:12 CAT 2015)
@@ -3818,32 +4224,18 @@ similar files:
 [+ src/qt/addressbookpage.cpp;	similarity: 1.0
 ]
 -------------------------
-commit A: eec77574459dcbd8d59d8dbd35125eb1e3ec1a2e	(34 changed files, Tue Jul 28 15:20:14 CAT 2015)
-commit B: 309f796b39d4ae7694c3f37a681c1ebcd1f58eda	(11 changed files, Thu Nov 14 20:47:45 CAT 2013)
+commit A: ca37e0f33980a1fe96ac4ed08fd7d692a7a592a5	(46 changed files, Mon Jul 27 14:25:13 CAT 2015)
+commit B: fb78cc23784b2fa478324aac35ca76c7cfe683a4	(13 changed files, Wed Nov 20 15:18:57 CAT 2013)
 commit similarity: 1.0
 similar files:
-[+ src/qt/addressbookpage.h;	similarity: 1.0
+[+ src/bitcoind.cpp;	similarity: 1.0
 ]
 -------------------------
-commit A: eec77574459dcbd8d59d8dbd35125eb1e3ec1a2e	(34 changed files, Tue Jul 28 15:20:14 CAT 2015)
-commit B: 0b4bd485ba33ab592b4aac759bcd3db6362a3b2f	(11 changed files, Sat Nov 16 10:16:46 CAT 2013)
+commit A: ca37e0f33980a1fe96ac4ed08fd7d692a7a592a5	(46 changed files, Mon Jul 27 14:25:13 CAT 2015)
+commit B: 5f083afde18aac9ae0daeef4f04e33fa530f2126	(13 changed files, Wed Nov 27 15:15:33 CAT 2013)
 commit similarity: 1.0
 similar files:
-[+ src/qt/addressbookpage.h;	similarity: 1.0
-]
--------------------------
-commit A: 9848d4297be9818578c8e0cac6e614e2a8a33a4d	(34 changed files, Fri Jul 31 10:01:30 CAT 2015)
-commit B: 309f796b39d4ae7694c3f37a681c1ebcd1f58eda	(11 changed files, Thu Nov 14 20:47:45 CAT 2013)
-commit similarity: 1.0
-similar files:
-[+ src/qt/addressbookpage.h;	similarity: 1.0
-]
--------------------------
-commit A: 9848d4297be9818578c8e0cac6e614e2a8a33a4d	(34 changed files, Fri Jul 31 10:01:30 CAT 2015)
-commit B: 0b4bd485ba33ab592b4aac759bcd3db6362a3b2f	(11 changed files, Sat Nov 16 10:16:46 CAT 2013)
-commit similarity: 1.0
-similar files:
-[+ src/qt/addressbookpage.h;	similarity: 1.0
+[+ src/bitcoind.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: 40b556d3742a1f65d67e2d4c760d0b13fe8be5b7	(10 changed files, Fri Jan 23 08:53:17 CAT 2015)
@@ -4128,6 +4520,34 @@ similar files:
 [+ src/alert.cpp;	similarity: 1.0
 , + src/bloom.cpp;	similarity: 1.0
 , + src/bloom.h;	similarity: 1.0
+]
+-------------------------
+commit A: a0eaff8a1d18ebba33cdea4cd1efaddeb55519e7	(23 changed files, Fri Jan 15 02:55:17 CAT 2016)
+commit B: 50c72f23ad5f7fcd13bf016f79cac6323c329caf	(36 changed files, Tue Feb 03 22:09:47 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: a0eaff8a1d18ebba33cdea4cd1efaddeb55519e7	(23 changed files, Fri Jan 15 02:55:17 CAT 2016)
+commit B: 05f17d4eaa9e74836d5736d50e456420949f2732	(36 changed files, Fri Mar 20 17:05:37 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 62f2d769e45043c1f262ed45babb70fe237ad2bb	(23 changed files, Thu Jan 28 12:08:51 CAT 2016)
+commit B: 50c72f23ad5f7fcd13bf016f79cac6323c329caf	(36 changed files, Tue Feb 03 22:09:47 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
+]
+-------------------------
+commit A: 62f2d769e45043c1f262ed45babb70fe237ad2bb	(23 changed files, Thu Jan 28 12:08:51 CAT 2016)
+commit B: 05f17d4eaa9e74836d5736d50e456420949f2732	(36 changed files, Fri Mar 20 17:05:37 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/qt/bitcoin.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: a68bb9f5e7ef1da5c044907dc3a1d3d4a4dbc2cc	(304 changed files, Wed Feb 03 07:41:13 CAT 2016)
@@ -4417,6 +4837,13 @@ commit similarity: 1.0
 similar files:
 [+ src/chain.h;	similarity: 1.0
 , + src/consensus/validation.h;	similarity: 1.0
+]
+-------------------------
+commit A: 531214fb100c14e62921085cd68cabe2b20ee0eb	(5 changed files, Fri Aug 19 21:38:04 CAT 2016)
+commit B: 5ff4065cc603ce16a59919e010c5faf8e3e2287d	(6 changed files, Wed Apr 01 11:54:12 CAT 2015)
+commit similarity: 1.0
+similar files:
+[+ src/qt/peertablemodel.cpp;	similarity: 1.0
 ]
 -------------------------
 commit A: 1880aeb0336324ed543c7d181c7b1509bc1cce7a	(3 changed files, Thu Sep 08 09:17:33 CAT 2016)
