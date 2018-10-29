@@ -10,7 +10,7 @@ public class RegularIdentifierRetrieverTest {
 
 	@Test
 	public void test1() {
-		AbstractIdentifierRetriever splitter = new RegularIdentifierRetriever();
+		AbstractIdentifierRetriever splitter = new RegularIdentifierRetrieverForCpp();
 		splitter.setCodeSnippet(
 				"for (auto chain : { CBaseChainParams::MAIN, CBaseChainParams::TESTNET, CBaseChainParams::REGTEST }) {");
 		splitter.findIdentifiers();
@@ -21,7 +21,7 @@ public class RegularIdentifierRetrieverTest {
 
 	@Test
 	public void test2() {
-		AbstractIdentifierRetriever splitter = new RegularIdentifierRetriever();
+		AbstractIdentifierRetriever splitter = new RegularIdentifierRetrieverForCpp();
 		splitter.setCodeSnippet("for (int seek_start : {0, 5}) {");
 		splitter.findIdentifiers();
 		assertArrayEquals(new String[] { "seek_start" }, Utils.convertToStringArray(splitter.getIdentifiers()));
@@ -30,7 +30,7 @@ public class RegularIdentifierRetrieverTest {
 
 	@Test
 	public void test3() {
-		AbstractIdentifierRetriever splitter = new RegularIdentifierRetriever();
+		AbstractIdentifierRetriever splitter = new RegularIdentifierRetrieverForCpp();
 		splitter.setCodeSnippet("try{} catch (const std::ios_base::failure& e) {}");
 		splitter.findIdentifiers();
 		assertArrayEquals(new String[] { "e" }, Utils.convertToStringArray(splitter.getIdentifiers()));

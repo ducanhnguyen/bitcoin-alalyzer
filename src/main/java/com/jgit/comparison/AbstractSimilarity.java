@@ -6,7 +6,7 @@ public abstract class AbstractSimilarity {
 	private String target = new String();
 
 	public static void main(String[] args) {
-		JaccardSimilarity sim = new JaccardSimilarity();
+		JaccardSimilarityForCpp sim = new JaccardSimilarityForCpp();
 		sim.setSource("xxx yyy zzz zzzk");
 		sim.setTarget("xxx yyy zzz");
 		System.out.println(sim.compare());

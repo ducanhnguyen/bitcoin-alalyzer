@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jgit.CommitRetriever;
 import com.jgit.comparison.DiffEntriesOfARepoRetriever;
 import com.jgit.comparison.identifier.AbstractIdentifierRetriever;
-import com.jgit.comparison.identifier.RegularIdentifierRetriever;
+import com.jgit.comparison.identifier.RegularIdentifierRetrieverForCpp;
 import com.jgit.comparison.object.MyDiffEntries;
 import com.jgit.comparison.object.MyDiffEntry;
 import com.jgit.datalog.object.ChangedFileOfACommit;
@@ -87,7 +87,7 @@ public class JsonDiffEntriesOfARepoExporter extends AbstractDiffExporter {
 					// Add identifiers
 					String changedCodeSnippet = Utils.convertToString(
 							diffEntryOfACommit.getChangedFile().getChangedCodeSnippetBeforeBeingChanged());
-					AbstractIdentifierRetriever identifierAnalyzer = new RegularIdentifierRetriever();
+					AbstractIdentifierRetriever identifierAnalyzer = new RegularIdentifierRetrieverForCpp();
 					identifierAnalyzer.setCodeSnippet(changedCodeSnippet);
 					List<String> identifiers = identifierAnalyzer.findIdentifiers();
 					int[] hashIdentifiers = hash(identifiers);

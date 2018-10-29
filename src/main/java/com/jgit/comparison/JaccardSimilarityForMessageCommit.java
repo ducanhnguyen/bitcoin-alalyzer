@@ -4,32 +4,33 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.jgit.comparison.identifier.RegularIdentifierRetriever;
+import com.jgit.comparison.identifier.RegularIdentifierRetrieverForCommitMessage;
 
-public class JaccardSimilarity extends AbstractSimilarity {
+public class JaccardSimilarityForMessageCommit extends AbstractSimilarity {
 	public static void main(String[] args) {
-		JaccardSimilarity sim = new JaccardSimilarity();
+		JaccardSimilarityForMessageCommit sim = new JaccardSimilarityForMessageCommit();
 		sim.setSource("xxx yyy zzz zzzk");
 		sim.setTarget("xxx yyy zzz");
 		System.out.println(sim.compare());
 	}
 
-	public JaccardSimilarity() {
+	public JaccardSimilarityForMessageCommit() {
 
 	}
 
 	public double compare() {
 		double sim = 0.0f;
 		if (getSource().length() > 0 && getTarget().length() > 0) {
-			RegularIdentifierRetriever tokenSplitter = new RegularIdentifierRetriever();
+			RegularIdentifierRetrieverForCommitMessage tokenSplitter = new RegularIdentifierRetrieverForCommitMessage();
 
 			tokenSplitter.setCodeSnippet(getSource());
-			List<String> tokensinSource = tokenSplitter.getIdentifiers();
-			System.out.println("Tokens A: " + tokensinSource);
+
+			List<String> tokensinSource = tokenSplitter.findIdentifiers();
+//			System.out.println("Tokens A: " + tokensinSource);
 
 			tokenSplitter.setCodeSnippet(getTarget());
-			List<String> tokensinTarget = tokenSplitter.getIdentifiers();
-			System.out.println("Tokens B: " + tokensinTarget);
+			List<String> tokensinTarget = tokenSplitter.findIdentifiers();
+//			System.out.println("Tokens B: " + tokensinTarget);
 
 			Set<String> unionSet = new HashSet<String>();
 			unionSet.addAll(tokensinTarget);
@@ -41,8 +42,8 @@ public class JaccardSimilarity extends AbstractSimilarity {
 					intersectionSet.add(token);
 				}
 
-			System.out.println("Intersection set = " + intersectionSet.toString());
-			System.out.println("Union set = " + unionSet.toString());
+//			System.out.println("Intersection set = " + intersectionSet.toString());
+//			System.out.println("Union set = " + unionSet.toString());
 			sim = intersectionSet.size() * 1.0f / unionSet.size();
 		}
 		return sim;

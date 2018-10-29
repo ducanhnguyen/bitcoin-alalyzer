@@ -23,7 +23,7 @@ public interface IConfiguration {
 
 	interface Jgit_Bitcoin {
 //		File BITCOIN_REPO = new File("C:\\Users\\adn0019\\WORK\\bitcoin\\bitcoin\\.git");
-		File BITCOIN_REPO = new File("F:\\workspace\\bitcoin\\bitcoin\\.git");
+		File BITCOIN_REPO = new File("G:\\workspace\\bitcoin\\.git");
 	}
 
 	interface Jgit_BitcoinABC {
