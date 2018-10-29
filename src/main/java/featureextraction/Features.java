@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Features extends ArrayList<Feature> {
-	public static final String[] NON_FEATURES_TOKENS = new String[] { "Add test", "Add a test", "Add testcase",
-			"Add a testcase", "Add test case", "Add a test case", "Add comment", "Add a comment", "Add documentation",
-			"Add note", "Add a note", "Add -benchmark", "Add benchmark" };
+	public static final String[] NON_FEATURES_TOKENS = new String[] { " test"," tests",
+			" testcase", " test case", " comment",
+			" documentation", " note", " -benchmark", "unit test" };
 
 	/**
 	 * Remove the merge commit. Remove the commits not adding new features
@@ -19,7 +19,7 @@ public class Features extends ArrayList<Feature> {
 				this.remove(i);
 			else
 				for (String nonfeaturesToken : NON_FEATURES_TOKENS)
-					if (feature.getFeature().startsWith(nonfeaturesToken)) {
+					if (feature.getFeature().contains(nonfeaturesToken)) {
 						this.remove(i);
 						continue;
 					}
@@ -42,7 +42,7 @@ public class Features extends ArrayList<Feature> {
 				boolean ignore = false;
 				if (ignoreNonFeatureFeatures)
 					for (String nonfeaturesToken : NON_FEATURES_TOKENS)
-						if (featureA.getFeature().startsWith(nonfeaturesToken)) {
+						if (featureA.getFeature().contains(nonfeaturesToken)) {
 							ignore = true;
 							break;
 						}

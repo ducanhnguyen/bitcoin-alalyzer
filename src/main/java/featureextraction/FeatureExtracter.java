@@ -1,5 +1,6 @@
 package featureextraction;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,13 +14,12 @@ import com.jgit.CommitRetriever;
 import com.jgit.comparison.JaccardSimilarityForMessageCommit;
 import com.jgit.object.CommitJgit;
 import com.jgit.object.CommitsJgit;
-import com.utils.IConfiguration;
 
 public class FeatureExtracter extends CommitRetriever {
 	public static void main(String[] args) throws IOException, GitAPIException {
 		// Get all commits in the current branch
 		FeatureExtracter instance = new FeatureExtracter();
-		instance.setRepoFile(IConfiguration.Jgit_Bitcoin.BITCOIN_REPO);
+		instance.setRepoFile(new File("G:\\workspace\\WordPress\\.git"));
 		CommitsJgit commits = instance.getAllCommits();
 		System.out.println("There are " + commits.size() + " commits in " + commits.getBranch());
 
@@ -43,7 +43,7 @@ public class FeatureExtracter extends CommitRetriever {
 						sim.setTarget(removedFeature.getFeature());
 
 						double similarity = sim.compare();
-						final double THRESHOLD = 0.3f;
+						final double THRESHOLD = 0.5f;
 						if (similarity >= THRESHOLD) {
 							System.out.println("-------\nPair:\n" + addedFeature + "\n" + removedFeature);
 						}
